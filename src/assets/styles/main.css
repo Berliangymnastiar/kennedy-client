@@ -1,0 +1,1542 @@
+/* CSS login.html */
+.jumbotron-login {
+  background-image: url(/src/assets/images/login-image.png);
+  background-size: cover;
+  height: 1020px;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-container a {
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  display: block;
+}
+
+.flex-item-1 {
+  flex: 50%;
+}
+
+.flex-item-1 h2 {
+  font-size: 64px;
+  margin-top: 107px;
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
+  font-weight: 600;
+  flex: 50%;
+}
+
+.flex-item-1 h5 {
+  font-size: 18px;
+  margin-top: 107px;
+  font-family: "Nunito", sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  flex: 50%;
+  text-align: left;
+}
+
+.btn-signup {
+  background-color: #393939;
+  color: #ffcd61;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
+.btn-login {
+  background-color: #ffcd61;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 12px;
+  margin-top: 25px;
+}
+
+.btn-loginGoogle {
+  background-color: #ffffff;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 35px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: 12px;
+}
+
+.flex-item-2 {
+  flex: 30%;
+  margin-top: 56px;
+}
+
+.flex-item-2 .form-control {
+  background-color: rgb(230, 227, 227);
+  height: 70px;
+  border-radius: 12px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: black;
+  /* padding-left: 0;
+  padding-right: 0; */
+}
+/* End CSS login.html */
+
+/* CSS home.html */
+.navbar-home {
+  color: #b8becd;
+  font-family: "Nunito", sans-serif;
+}
+
+.navbar-home .btn-login-nav {
+  border-color: #ffcd61;
+  font-weight: 700;
+}
+
+.navbar-home .btn-register-nav {
+  background-color: #ffcd61;
+  font-weight: 700;
+  color: black;
+}
+
+.jumbotron-home {
+  background-image: url(/src/assets/images/image-home.png);
+  background-size: cover;
+  height: 1020px;
+  text-align: left;
+}
+
+.jumbotron-home h2 {
+  font-size: 64px;
+  margin-top: 107px;
+  font-family: "Playfair Display", serif;
+  color: #202336;
+  font-weight: 600;
+  text-align: center;
+}
+
+.jumbotron-home h5 {
+  font-size: 22px;
+  margin-top: 75px;
+  font-family: "Nunito", sans-serif;
+  color: #202336;
+  font-weight: 600;
+  text-align: center;
+}
+
+.jumbotron-home .form-control {
+  margin-left: 60px;
+  background-color: #d4d4d4;
+  height: 50px;
+  border-radius: 8px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #4a4c53;
+  margin-top: 40px;
+}
+
+.btn-search {
+  background-color: #ffcd61;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 8px;
+  margin-top: 25px;
+  margin-left: 60px;
+}
+
+.card-popular h5 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 80px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+.garis {
+  border-bottom: 1px black solid;
+}
+
+.info-panel {
+  background-color: white;
+  margin-top: -50px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 100px;
+  border-radius: 6px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info-panel .location {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  margin-top: 11px;
+  color: #042521;
+}
+
+.info-panel p {
+  font-size: 16px;
+  color: #80918e;
+}
+
+.info-testimonials h5 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 80px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+/* End CSS home.html */
+
+/* CSS profile.html */
+.profile .text-profile {
+  margin-top: 110px;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+}
+
+.profile .name-person {
+  margin-top: 50px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+}
+
+.profile p {
+  font-size: 20px;
+  color: #b8becd;
+}
+
+.icon-pencil {
+  margin-top: 140px;
+  margin-left: -60px;
+}
+
+.form-check {
+  margin-top: 130px;
+}
+
+.contacts h5 {
+  margin-top: 90px;
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  color: #4f5665;
+  font-weight: 600;
+}
+
+.contacts .form-group {
+  margin-top: 40px;
+}
+
+.contacts label {
+  color: #9f9f9f;
+}
+
+.contacts input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.identity h5 {
+  margin-top: 90px;
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  color: #4f5665;
+  font-weight: 600;
+}
+
+.identity .form-group {
+  margin-top: 40px;
+}
+
+.identity label {
+  color: #9f9f9f;
+}
+
+.identity input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.btn-save {
+  background-color: #ffcd61;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.btn-editpass {
+  background-color: #393939;
+  color: #ffcd61;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.btn-cancel {
+  background-color: #cbcbd4;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 30px;
+  border-radius: 8px;
+}
+/* End CSS profile.html */
+
+/* CSS forgot-password.html */
+.jumbotron-forgot-password {
+  background-image: url(/src/assets/images/image-forgot-password.png);
+  background-size: cover;
+  height: 1020px;
+  text-align: left;
+}
+
+.icon-back {
+  margin-top: 80px;
+  margin-left: auto;
+}
+
+.jumbotron-forgot-password .back {
+  color: #ffffff;
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  margin-top: 80px;
+  margin-left: -280px;
+}
+
+.jumbotron-forgot-password .word-forgot {
+  color: #ffffff;
+  font-size: 42px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-top: 140px;
+  text-align: center;
+}
+
+.jumbotron-forgot-password form {
+  position: absolute;
+  margin-left: 40%;
+  margin-right: -70%;
+  margin-top: 80px;
+  /* align-content: center; */
+}
+
+.jumbotron-forgot-password .form-control {
+  height: 60px;
+  width: 300px;
+  text-align: center;
+  color: black;
+  background-color: #ffffff;
+  opacity: 0.5;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.jumbotron-forgot-password p {
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: -10%;
+  margin-top: 50px;
+}
+
+.jumbotron-forgot-password .resend-link {
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+.btn-send-link {
+  background-color: #ffcd61;
+  font-family: "Nunito", sans-serif;
+  color: #393939;
+  font-weight: 700;
+  font-size: 24px;
+  width: 300px;
+  height: 60px;
+  border-radius: 8px;
+  margin-top: 31px;
+}
+/* End CSS forgot-password.html */
+
+/* CSS reservation.html */
+.navbar-with-profile {
+  color: #b8becd;
+  font-family: "Nunito", sans-serif;
+}
+
+.navbar-with-profile .icon-profile {
+  margin-top: -5px;
+}
+
+.text-reservation {
+  margin-top: 105px;
+}
+
+.icon-back-black {
+  height: 20px;
+}
+
+.back-reservation {
+  margin-left: 0;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+}
+
+.descripton-reservation {
+  margin-top: 50px;
+}
+
+.descripton-reservation img {
+  max-width: 300px;
+}
+
+.descripton-reservation h3 {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  text-align: left;
+}
+
+.descripton-reservation h5 {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+}
+
+.descripton-reservation .status-payment {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  color: #9b0a0a;
+}
+
+.btn-minus {
+  background-color: #efefef;
+  font-weight: 700;
+  font-size: 24px;
+  width: 45px;
+  height: 49px;
+  border-radius: 10px;
+  margin-top: 54px;
+}
+
+.btn-plus {
+  background-color: #ffcd61;
+  font-weight: 700;
+  font-size: 24px;
+  width: 45px;
+  height: 49px;
+  margin-top: 54px;
+  border-radius: 10px;
+}
+
+.text-value {
+  font-size: 38px;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reservation-date {
+  font-size: 24px;
+  color: #393939;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  margin-top: 50px;
+}
+
+.descripton-reservation form {
+  margin-top: 32px;
+}
+
+.descripton-reservation .form-control {
+  height: 60px;
+  width: 300px;
+  text-align: left;
+  color: black;
+  background-color: #e2dede;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+}
+
+.descripton-reservation option {
+  color: grey;
+}
+
+.btn-paynow {
+  background-color: #ffcd61;
+  font-family: "Nunito", sans-serif;
+  color: #393939;
+  font-weight: 700;
+  font-size: 18px;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+/* End CSS reservation.html */
+
+footer img {
+  margin-top: 70px;
+}
+
+footer p {
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  color: #848484;
+  margin-top: 26px;
+  font-weight: 300;
+}
+
+footer .text-copyright {
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  color: #848484;
+  margin-top: 53px;
+  font-weight: 300;
+}
+
+footer .text-destinations h5 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
+
+footer .text-vehicle h5 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
+
+footer .text-interests h5 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
+
+footer .text-destinations p {
+  font-size: 18px;
+  margin-top: 3px;
+  font-weight: 300;
+}
+
+footer .text-vehicle p {
+  font-size: 18px;
+  margin-top: 3px;
+  font-weight: 300;
+}
+
+footer .text-interests p {
+  font-size: 18px;
+  margin-top: 3px;
+  font-weight: 300;
+}
+
+footer .icon-sosmed {
+  border-top: 1px #c4c4c4 solid;
+  margin-top: 70px;
+}
+
+@media (min-width: 768px) {
+  /* CSS login.html */
+  .jumbotron-login {
+    background-image: url(/src/assets/images/login-image.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
+  }
+
+  .btn-signup {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 155px;
+    padding-right: 155px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 12px;
+    margin-top: 25px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .flex-item-1 h2 {
+    font-size: 64px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+  }
+
+  .flex-item-1 h5 {
+    font-size: 24px;
+    margin-top: 107px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+    text-align: left;
+  }
+
+  .flex-item-2 {
+    flex: 40%;
+    margin-top: 176px;
+  }
+
+  .btn-login {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 217px;
+    padding-right: 217px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 12px;
+    margin-top: 50px;
+  }
+
+  .btn-loginGoogle {
+    background-color: #ffffff;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 35px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 125px;
+    padding-right: 125px;
+    border-radius: 12px;
+  }
+  /* End CSS login.html */
+
+  /* CSS home.html */
+  .jumbotron-home {
+    background-image: url(/src/assets/images/image-home.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
+  }
+
+  .jumbotron-home h2 {
+    font-size: 64px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #202336;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .jumbotron-home h5 {
+    font-size: 22px;
+    margin-top: 75px;
+    font-family: "Nunito", sans-serif;
+    color: #202336;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .jumbotron-home .form-control {
+    margin-left: 0px;
+    background-color: #d4d4d4;
+    height: 50px;
+    border-radius: 8px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #4a4c53;
+    margin-top: 40px;
+  }
+
+  .btn-search {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 12px;
+    margin-top: 25px;
+    margin-left: 0;
+  }
+
+  .card-popular h5 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 80px;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .card-popular .view-all {
+    margin-top: 82px;
+  }
+
+  .card-popular a {
+    font-size: 16px;
+    color: #fb8f1d;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .info-testimonials h5 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 80px;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .info-testimonials .word-testimonials {
+    margin-top: 30px;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .info-testimonials .name-person {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .icon-stars {
+    margin-top: 150px;
+  }
+  /* End CSS home.html */
+
+  /* CSS profile.html */
+  .profile .text-profile {
+    margin-top: 110px;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .profile .name-person {
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+  }
+
+  .profile p {
+    font-size: 20px;
+    color: #b8becd;
+  }
+
+  .icon-pencil {
+    margin-top: 140px;
+    margin-left: -60px;
+  }
+
+  .form-check {
+    margin-top: 130px;
+  }
+
+  .contacts h5 {
+    margin-top: 90px;
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    color: #4f5665;
+    font-weight: 600;
+  }
+
+  .btn-save {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
+  .btn-editpass {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
+  .btn-cancel {
+    background-color: #cbcbd4;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+  /* End CSS profile.html */
+
+  /* CSS forgot-password.html */
+  .icon-back {
+    margin-top: 80px;
+    margin-left: -250px;
+  }
+
+  .jumbotron-forgot-password .back {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    margin-top: 80px;
+    margin-left: -280px;
+  }
+
+  .jumbotron-forgot-password .word-forgot {
+    color: #ffffff;
+    font-size: 64px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-top: 140px;
+  }
+
+  .jumbotron-forgot-password form {
+    position: absolute;
+    margin-left: 60%;
+    margin-right: -70%;
+    margin-top: 80px;
+    /* align-content: center; */
+  }
+
+  .jumbotron-forgot-password .form-control {
+    height: 60px;
+    width: 448px;
+    text-align: center;
+    color: black;
+    background-color: #ffffff;
+    opacity: 0.5;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+
+  .btn-send-link {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 24px;
+    width: 448px;
+    height: 60px;
+    border-radius: 8px;
+    margin-top: 31px;
+  }
+
+  .jumbotron-forgot-password p {
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: -10%;
+    margin-top: 50px;
+  }
+
+  .jumbotron-forgot-password .resend-link {
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 50px;
+  }
+  /* End CSS forgot-password.html */
+
+  /* CSS reservation.html */
+  .navbar-with-profile {
+    color: #b8becd;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .navbar-with-profile .icon-profile {
+    margin-top: -5px;
+  }
+
+  .text-reservation {
+    margin-top: 105px;
+  }
+
+  .back-reservation {
+    margin-left: 0;
+    font-weight: 700;
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .icon-back-black {
+    height: 40px;
+  }
+
+  .descripton-reservation {
+    margin-top: 120px;
+  }
+
+  .descripton-reservation img {
+    max-width: 696px;
+  }
+
+  .descripton-reservation h3 {
+    margin-top: 0;
+    margin-left: 280px;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+  }
+
+  .descripton-reservation h5 {
+    margin-left: 280px;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+  }
+
+  .descripton-reservation .status-payment {
+    margin-left: 280px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #9b0a0a;
+  }
+
+  .btn-minus {
+    background-color: #efefef;
+    font-weight: 700;
+    font-size: 24px;
+    width: 50px;
+    height: 59px;
+    margin-left: 280px;
+    border-radius: 10px;
+    margin-top: 54px;
+  }
+
+  .btn-plus {
+    background-color: #ffcd61;
+    font-weight: 700;
+    font-size: 24px;
+    width: 50px;
+    height: 59px;
+    margin-left: 280px;
+    margin-top: 54px;
+    border-radius: 10px;
+  }
+
+  .text-value {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-left: 300px;
+  }
+
+  .reservation-date {
+    font-size: 24px;
+    color: #393939;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    margin-left: 280px;
+    margin-top: 50px;
+  }
+
+  .descripton-reservation form {
+    margin-left: 280px;
+    margin-top: 32px;
+  }
+
+  .descripton-reservation .form-control {
+    height: 60px;
+    width: 300px;
+    text-align: left;
+    color: black;
+    background-color: #e2dede;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .descripton-reservation option {
+    color: grey;
+  }
+
+  .btn-paynow {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+  /* End CSS reservation.html */
+
+  footer p {
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    color: #848484;
+    margin-top: 26px;
+    font-weight: 300;
+  }
+
+  footer .text-destinations h5 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-bottom: 25px;
+  }
+
+  footer .text-vehicle h5 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-bottom: 25px;
+  }
+
+  footer .text-interests h5 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-left: 80px;
+    margin-bottom: 25px;
+  }
+
+  footer .text-destinations p {
+    font-size: 18px;
+    margin-left: 100px;
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  footer .text-vehicle p {
+    font-size: 18px;
+    margin-left: 100px;
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  footer .text-interests p {
+    font-size: 18px;
+    margin-left: 80px;
+    margin-top: 3px;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 1440px) {
+  .icon-back {
+    margin-top: 80px;
+    margin-left: auto;
+  }
+
+  .jumbotron-forgot-password .back {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    margin-top: 80px;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .icon-back {
+    margin-top: 80px;
+    margin-left: auto;
+  }
+
+  .jumbotron-forgot-password .back {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    margin-top: 80px;
+    margin-left: auto;
+  }
+
+  .descripton-reservation img {
+    max-width: 500px;
+  }
+
+  .descripton-reservation h3 {
+    margin-top: 0px;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+    margin-left: 60px;
+  }
+
+  .descripton-reservation h5 {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+    margin-left: 60px;
+  }
+
+  .descripton-reservation .status-payment {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #9b0a0a;
+    margin-left: 60px;
+  }
+
+  .btn-minus {
+    background-color: #efefef;
+    font-weight: 700;
+    font-size: 24px;
+    width: 45px;
+    height: 49px;
+    border-radius: 10px;
+    margin-top: 24px;
+    margin-left: 60px;
+  }
+
+  .btn-plus {
+    background-color: #ffcd61;
+    font-weight: 700;
+    font-size: 24px;
+    width: 45px;
+    height: 49px;
+    margin-top: 24px;
+    border-radius: 10px;
+    margin-left: 60px;
+  }
+
+  .text-value {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 0;
+  }
+
+  .reservation-date {
+    font-size: 18px;
+    color: #393939;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    margin-top: 20px;
+    margin-left: 60px;
+  }
+
+  .descripton-reservation form {
+    margin-top: 15px;
+    margin-left: 60px;
+  }
+
+  .descripton-reservation .form-control {
+    height: 40px;
+    width: 300px;
+    text-align: left;
+    color: black;
+    background-color: #e2dede;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .descripton-reservation option {
+    color: grey;
+  }
+
+  .btn-paynow {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-save {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+
+  .btn-editpass {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+
+  .btn-cancel {
+    background-color: #cbcbd4;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 30px;
+    border-radius: 8px;
+  }
+
+  .jumbotron-forgot-password form {
+    position: absolute;
+    margin-left: 40%;
+    margin-right: -70%;
+    margin-top: 80px;
+  }
+
+  .descripton-reservation img {
+    max-width: 500px;
+  }
+
+  .descripton-reservation h3 {
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+    margin-left: auto;
+  }
+
+  .descripton-reservation h5 {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+    margin-left: auto;
+  }
+
+  .descripton-reservation .status-payment {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #9b0a0a;
+    margin-left: auto;
+  }
+
+  .btn-minus {
+    background-color: #efefef;
+    font-weight: 700;
+    font-size: 24px;
+    width: 55px;
+    height: 59px;
+    border-radius: 10px;
+    margin-top: 24px;
+    margin-left: auto;
+  }
+
+  .btn-plus {
+    background-color: #ffcd61;
+    font-weight: 700;
+    font-size: 24px;
+    width: 55px;
+    height: 59px;
+    margin-top: 24px;
+    border-radius: 10px;
+    margin-left: -80px;
+  }
+
+  .text-value {
+    font-size: 38px;
+    font-weight: 700;
+    margin-left: -120px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .reservation-date {
+    font-size: 24px;
+    color: #393939;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    margin-top: 20px;
+    margin-left: auto;
+  }
+
+  .descripton-reservation form {
+    margin-top: 15px;
+    margin-left: auto;
+  }
+
+  .descripton-reservation .form-control {
+    height: 60px;
+    width: 300px;
+    text-align: left;
+    color: black;
+    background-color: #e2dede;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .descripton-reservation option {
+    color: grey;
+  }
+
+  .btn-paynow {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 425px) {
+  .jumbotron-forgot-password form {
+    position: absolute;
+    margin-left: 30%;
+    margin-right: -70%;
+    margin-top: 80px;
+  }
+
+  .descripton-reservation {
+    margin-top: 50px;
+  }
+
+  .descripton-reservation img {
+    max-width: 300px;
+  }
+
+  .descripton-reservation h3 {
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+    text-align: left;
+  }
+
+  .descripton-reservation h5 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Playfair Display", serif;
+  }
+
+  .descripton-reservation .status-payment {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #9b0a0a;
+  }
+
+  .btn-minus {
+    background-color: #efefef;
+    font-weight: 700;
+    font-size: 24px;
+    width: 45px;
+    height: 49px;
+    border-radius: 10px;
+    margin-top: 54px;
+    margin-left: 0px;
+  }
+
+  .btn-plus {
+    background-color: #ffcd61;
+    font-weight: 700;
+    font-size: 24px;
+    width: 45px;
+    height: 49px;
+    margin-top: 54px;
+    border-radius: 10px;
+    margin-left: 10px;
+  }
+
+  .text-value {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-left: 5px;
+  }
+
+  .reservation-date {
+    font-size: 24px;
+    color: #393939;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    margin-top: 50px;
+  }
+
+  .descripton-reservation form {
+    margin-top: 32px;
+  }
+
+  .descripton-reservation .form-control {
+    height: 60px;
+    width: 300px;
+    text-align: left;
+    color: black;
+    background-color: #e2dede;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .descripton-reservation option {
+    color: grey;
+  }
+
+  .btn-paynow {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    height: 50px;
+    width: 300px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 375px) {
+  .jumbotron-forgot-password form {
+    position: absolute;
+    margin-left: 10%;
+    margin-right: -80%;
+    margin-top: 80px;
+  }
+
+  .jumbotron-forgot-password p {
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-left: -5%;
+    margin-top: 50px;
+  }
+
+  .jumbotron-forgot-password .resend-link {
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 320px) {
+  .btn-save {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+
+  .btn-editpass {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+
+  .btn-cancel {
+    background-color: #cbcbd4;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 30px;
+    border-radius: 8px;
+  }
+
+  .jumbotron-forgot-password form {
+    position: absolute;
+    margin-left: -3%;
+    margin-right: -20%;
+    margin-top: 80px;
+  }
+}
