@@ -7,7 +7,7 @@ import fixiePicture from "../assets/images/fixie-grey-image.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-class reservationPage extends Component {
+class viewMorePage extends Component {
   state = {
     clicked: 0,
   };
@@ -15,7 +15,6 @@ class reservationPage extends Component {
     const clicked = localStorage.getItem("clicked");
     if (clicked) this.setState({ clicked: Number(clicked) });
   }
-
   render() {
     return (
       <>
@@ -34,7 +33,7 @@ class reservationPage extends Component {
                   </Link>
                 </div>
                 <div className="col-2">
-                  <h5 className="back-reservation">Reservation</h5>
+                  <h5 className="back-reservation">Detail</h5>
                 </div>
               </div>
             </div>
@@ -48,8 +47,17 @@ class reservationPage extends Component {
                 <div className="col-lg-6 col-12">
                   <h3>Fixie - Gray Only</h3>
                   <h5>Yogyakarta</h5>
+                  <p className="status-payment" style={{ color: "#087E0D" }}>
+                    Available
+                  </p>
                   <p className="status-payment">No Prepayment</p>
-                  <div className="row">
+                  <p className="info-vehicle">Capacity: 1 person</p>
+                  <p className="info-vehicle">Type : Bike</p>
+                  <p className="info-vehicle">Reservation before 2 PM</p>
+                  <h3 className="text-right" style={{ marginTop: "100px" }}>
+                    Rp. 78.000/day
+                  </h3>
+                  <div className="row" style={{ marginTop: "100px" }}>
                     <div className="col-2">
                       <button
                         className="btn btn-minus"
@@ -96,32 +104,20 @@ class reservationPage extends Component {
                       </button>
                     </div>
                   </div>
-                  <p className="reservation-date">Reservation Date :</p>
-                  <form action="#">
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Select Date"
-                      />
-                    </div>
-                    <div className="form-group mt-4">
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>1 Day</option>
-                        <option>2 Day</option>
-                        <option>3 Day</option>
-                        <option>4 Day</option>
-                        <option>5 Day</option>
-                      </select>
-                    </div>
-                    <button className="btn btn-paynow text-center">
-                      Pay now : Rp. 178.000
-                    </button>
-                  </form>
+                </div>
+                <div className="col-md-4 col-4">
+                  <button className="btn btn-chat">Chat Admin</button>
+                </div>
+                <div className="col-md-4 col-4">
+                  <Link
+                    to="/reservation"
+                    className="btn btn-reservation text-center"
+                  >
+                    <p className="mt-3">Reservation</p>
+                  </Link>
+                </div>
+                <div className="col-md-4 col-4">
+                  <button className="btn btn-like">Like</button>
                 </div>
               </div>
             </div>
@@ -133,4 +129,4 @@ class reservationPage extends Component {
   }
 }
 
-export default reservationPage;
+export default viewMorePage;

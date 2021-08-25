@@ -38,7 +38,7 @@ function Card() {
               vehicles.map((vehicle) => {
                 return (
                   <div className="col-md-3 col-12 mt-4" key={vehicle.id}>
-                    <Link>
+                    <Link to="/view-more">
                       <img src={vehicle.picture} className="img-fluid" alt="" />
                       <div className="row justify-content-start">
                         <div className="col-md-6 col-5 info-panel">

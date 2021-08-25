@@ -8,6 +8,7 @@ import forgotPasswordPage from "./Forgot-password";
 import profilePage from "./Profile";
 import vehicleType from "./Vehicle-type";
 import reservationPage from "./Reservation";
+import viewMorePage from "./View-more";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
       <Route path="/profile" exact component={profilePage} />
       {/* localhost/vehicle-type */}
       <Route path="/vehicle-type" exact component={vehicleType} />
+      {/* localhost/view-more */}
+      <Route path="/view-more" exact component={viewMorePage} />
       {/* localhost/reservation */}
       <Route path="/reservation" exact component={reservationPage} />
     </Router>

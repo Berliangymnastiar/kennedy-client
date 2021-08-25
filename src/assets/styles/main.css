@@ -315,6 +315,36 @@
   margin-top: 30px;
 }
 
+.btn-chat {
+  background-color: #393939;
+  color: #ffcd61;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.btn-reservation {
+  background-color: #ffcd61;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.btn-like {
+  background-color: #ffcd61;
+  color: #393939;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
 .btn-cancel {
   background-color: #cbcbd4;
   color: #393939;
@@ -455,6 +485,13 @@
 }
 
 .descripton-reservation .status-payment {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  color: #9b0a0a;
+}
+
+.descripton-reservation .info-vehicle {
   font-size: 14px;
   font-weight: 700;
   font-family: "Nunito", sans-serif;
@@ -838,6 +875,42 @@ footer .icon-sosmed {
     margin-top: 80px;
   }
 
+  .btn-chat {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    width: 300px;
+    height: 89px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
+  .btn-reservation {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    width: 300px;
+    height: 89px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
+  .btn-like {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    width: 200px;
+    height: 89px;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
   .btn-cancel {
     background-color: #cbcbd4;
     color: #393939;
@@ -980,6 +1053,14 @@ footer .icon-sosmed {
     font-weight: 700;
     font-family: "Nunito", sans-serif;
     color: #9b0a0a;
+  }
+
+  .descripton-reservation .info-vehicle {
+    margin-left: 280px;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
   }
 
   .btn-minus {
@@ -1276,6 +1357,14 @@ footer .icon-sosmed {
     margin-left: 60px;
   }
 
+  .descripton-reservation .info-vehicle {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Nunito", sans-serif;
+    margin-left: auto;
+    color: #393939;
+  }
+
   .btn-minus {
     background-color: #efefef;
     font-weight: 700;
@@ -1379,6 +1468,42 @@ footer .icon-sosmed {
     background-size: cover;
     height: 1000px;
     text-align: left;
+  }
+
+  .btn-chat {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 200px;
+    height: 89px;
+  }
+
+  .btn-reservation {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 200px;
+    height: 89px;
+  }
+
+  .btn-like {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 150px;
+    height: 89px;
   }
 
   .btn-signup {
@@ -1491,6 +1616,14 @@ footer .icon-sosmed {
     font-family: "Nunito", sans-serif;
     color: #9b0a0a;
     margin-left: auto;
+  }
+
+  .descripton-reservation .info-vehicle {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Nunito", sans-serif;
+    margin-left: auto;
+    color: #393939;
   }
 
   .btn-minus {
@@ -1611,6 +1744,42 @@ footer .icon-sosmed {
     text-align: left;
   }
 
+  .btn-chat {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 120px;
+    height: 60px;
+  }
+
+  .btn-reservation {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 120px;
+    height: 60px;
+  }
+
+  .btn-like {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 100px;
+    height: 60px;
+  }
+
   .btn-signup {
     background-color: #393939;
     color: #ffcd61;
@@ -1725,6 +1894,13 @@ footer .icon-sosmed {
     color: #9b0a0a;
   }
 
+  .descripton-reservation .info-vehicle {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+  }
+
   .btn-minus {
     background-color: #efefef;
     font-weight: 700;
@@ -1826,6 +2002,42 @@ footer .icon-sosmed {
     height: 71px;
     border-top-right-radius: 8px;
   }
+
+  .btn-chat {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 110px;
+    height: 60px;
+  }
+
+  .btn-reservation {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 110px;
+    height: 60px;
+  }
+
+  .btn-like {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 90px;
+    height: 60px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -1925,5 +2137,41 @@ footer .icon-sosmed {
     background-color: white;
     margin-top: -70px;
     height: 71px;
+  }
+
+  .btn-chat {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+
+  .btn-reservation {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+
+  .btn-like {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 90px;
+    height: 40px;
   }
 }
