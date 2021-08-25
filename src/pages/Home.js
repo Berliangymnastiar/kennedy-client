@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import photoTestimonial from "../assets/images/photo-testimonials.png";
 import iconStars from "../assets/images/icon-stars.png";
 import merapiImage from "../assets/images/merapi-image.png";
-import telukBogamImage from "../assets/images/teluk-bogam-image.png";
+import telukBogamImage from "../assets/images/teluk-bogam.png";
 import bromoImage from "../assets/images/bromo-image.png";
 import malioboroImage from "../assets/images/malioboro-image.png";
 
@@ -84,13 +84,13 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className="row text-center">
+            <div className="row">
               <div className="col-md-3 col-12 mt-4">
                 <img src={merapiImage} className="img-fluid" alt="merapi-img" />
-                <div className="row justify-content-center">
-                  <div className="col-md-8 col-3 info-panel">
-                    <h5 className="location text-center">Merapi</h5>
-                    <p className="text-center">Yogyakarta</p>
+                <div className="row justify-content-start">
+                  <div className="col-md-6 col-5 info-panel">
+                    <h5 className="location text-left">Merapi</h5>
+                    <p className="text-left">Yogyakarta</p>
                   </div>
                 </div>
               </div>
@@ -100,19 +100,19 @@ function Home() {
                   className="img-fluid"
                   alt="teluk-bogam-img"
                 />
-                <div className="row justify-content-center">
-                  <div className="col-md-8 col-3 info-panel">
-                    <h5 className="location text-center">Teluk Bogam</h5>
-                    <p className="text-center">Kalimantan</p>
+                <div className="row justify-content-start">
+                  <div className="col-md-6 col-5 info-panel">
+                    <h5 className="location text-left">Teluk Bogam</h5>
+                    <p className="text-left">Kalimantan</p>
                   </div>
                 </div>
               </div>
               <div className="col-md-3 col-12 mt-4">
                 <img src={bromoImage} className="img-fluid" alt="bromo-img" />
-                <div className="row justify-content-center">
-                  <div className="col-md-8 col-3 info-panel">
-                    <h5 className="location text-center">Bromo</h5>
-                    <p className="text-center">Malang</p>
+                <div className="row justify-content-start">
+                  <div className="col-md-6 col-5 info-panel">
+                    <h5 className="location text-left">Bromo</h5>
+                    <p className="text-left">Malang</p>
                   </div>
                 </div>
               </div>
@@ -122,10 +122,10 @@ function Home() {
                   className="img-fluid"
                   alt="malioboro-img"
                 />
-                <div className="row justify-content-center">
-                  <div className="col-md-8 col-3 info-panel">
-                    <h5 className="location text-center">Malioboro</h5>
-                    <p className="text-center">Yogyakarta</p>
+                <div className="row justify-content-start">
+                  <div className="col-md-6 col-5 info-panel">
+                    <h5 className="location text-left">Malioboro</h5>
+                    <p className="text-left">Yogyakarta</p>
                   </div>
                 </div>
               </div>

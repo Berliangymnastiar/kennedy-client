@@ -1,15 +1,21 @@
 import React from "react";
+import { Link, Redirect } from "react-router-dom";
 
 import photoProfile from "../assets/images/photo-profile.png";
 import iconPencil from "../assets/images/icon-pencil.png";
 
-import HeaderProfile from "../components/Header-profile";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function profilePage() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <>
-      <HeaderProfile />
+      <Header isLogin />
       <main>
         <section className="profile">
           <div className="container">

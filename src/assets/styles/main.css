@@ -8,7 +8,7 @@
 
 .flex-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .flex-container a {
@@ -16,6 +16,7 @@
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   display: block;
+  text-align: left;
 }
 
 .flex-item-1 {
@@ -174,8 +175,13 @@
   font-size: 25px;
   font-weight: 600;
   margin-top: 80px;
-  text-align: center;
+  text-align: left;
   font-family: "Playfair Display", serif;
+}
+
+.card-popular img {
+  height: 280px;
+  width: 355px;
 }
 
 .garis {
@@ -184,24 +190,21 @@
 
 .info-panel {
   background-color: white;
-  margin-top: -50px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 100px;
-  border-radius: 6px;
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+  margin-top: -70px;
+  height: 70px;
+  border-top-right-radius: 8px;
 }
 
 .info-panel .location {
   font-family: "Nunito", sans-serif;
-  font-size: 18px;
-  margin-top: 11px;
+  font-size: 16px;
+  margin-top: 13px;
   color: #042521;
+  /* width: 120px; */
 }
 
 .info-panel p {
-  font-size: 16px;
+  font-size: 14px;
   color: #80918e;
 }
 
@@ -648,10 +651,8 @@ footer .icon-sosmed {
     color: #393939;
     font-weight: 700;
     font-size: 24px;
-    padding-left: 217px;
-    padding-right: 217px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    width: 500px;
+    height: 76px;
     border-radius: 12px;
     margin-top: 50px;
   }
@@ -663,10 +664,8 @@ footer .icon-sosmed {
     font-weight: 600;
     font-size: 24px;
     margin-top: 35px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 125px;
-    padding-right: 125px;
+    width: 500px;
+    height: 76px;
     border-radius: 12px;
   }
   /* End CSS login.html */
@@ -722,6 +721,11 @@ footer .icon-sosmed {
     border-radius: 12px;
     margin-top: 25px;
     margin-left: 0;
+  }
+
+  .card-popular img {
+    height: 300px;
+    width: 320px;
   }
 
   .card-popular h5 {
@@ -1104,6 +1108,31 @@ footer .icon-sosmed {
 }
 
 @media (max-width: 1440px) {
+  .card-popular img {
+    height: 300px;
+    width: 355px;
+  }
+
+  .info-panel {
+    background-color: white;
+    margin-top: -70px;
+    height: 75px;
+    border-top-right-radius: 6px;
+  }
+
+  .info-panel .location {
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    margin-top: 13px;
+    color: #042521;
+    /* width: 120px; */
+  }
+
+  .info-panel p {
+    font-size: 14px;
+    color: #80918e;
+  }
+
   .icon-back {
     margin-top: 80px;
     margin-left: auto;
@@ -1119,7 +1148,93 @@ footer .icon-sosmed {
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
+  /* CSS login.html */
+  .jumbotron-login {
+    background-image: url(/src/assets/images/login-image.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
+  }
+
+  .btn-signup {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 155px;
+    padding-right: 155px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: -150px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-item-1 h2 {
+    font-size: 64px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+  }
+
+  .flex-item-1 h5 {
+    font-size: 24px;
+    margin-top: 107px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+    text-align: left;
+  }
+
+  .flex-item-2 .form-control {
+    background-color: rgb(230, 227, 227);
+    height: 70px;
+    width: 600px;
+    border-radius: 12px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: black;
+  }
+
+  .flex-item-2 {
+    flex: 40%;
+    margin-top: 176px;
+  }
+
+  .btn-login {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    width: 300px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  .btn-loginGoogle {
+    background-color: #ffffff;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 50px;
+    width: 300px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
   .icon-back {
     margin-top: 80px;
     margin-left: auto;
@@ -1234,34 +1349,114 @@ footer .icon-sosmed {
 }
 
 @media (max-width: 768px) {
-  .btn-save {
-    background-color: #ffcd61;
-    color: #393939;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    margin-top: 30px;
+  .card-popular img {
+    height: 200px;
+    width: 300px;
   }
 
-  .btn-editpass {
+  .info-panel {
+    background-color: white;
+    margin-top: -70px;
+    height: 75px;
+    border-top-right-radius: 6px;
+  }
+
+  .info-panel .location {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    margin-top: 13px;
+    color: #042521;
+  }
+
+  .info-panel p {
+    font-size: 12px;
+    color: #80918e;
+  }
+
+  /* CSS login.html */
+  .jumbotron-login {
+    background-image: url(/src/assets/images/login-image.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
+  }
+
+  .btn-signup {
     background-color: #393939;
     color: #ffcd61;
     font-family: "Nunito", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    margin-top: 30px;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: -150px;
   }
 
-  .btn-cancel {
-    background-color: #cbcbd4;
-    color: #393939;
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-item-1 h2 {
+    font-size: 42px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+  }
+
+  .flex-item-1 h5 {
+    font-size: 22px;
+    margin-top: 107px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+    text-align: left;
+  }
+
+  .flex-item-2 .form-control {
+    background-color: rgb(230, 227, 227);
+    height: 70px;
+    width: 400px;
+    border-radius: 12px;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
-    font-size: 16px;
-    margin-top: 30px;
-    border-radius: 8px;
+    font-size: 24px;
+    color: black;
+  }
+
+  .flex-item-2 {
+    flex: 40%;
+    margin-top: 176px;
+  }
+
+  .btn-login {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    width: 400px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  .btn-loginGoogle {
+    background-color: #ffffff;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 50px;
+    width: 400px;
+    height: 60px;
+    border-radius: 12px;
   }
 
   .jumbotron-forgot-password form {
@@ -1371,6 +1566,129 @@ footer .icon-sosmed {
 }
 
 @media (max-width: 425px) {
+  .card-popular h5 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 80px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+  }
+
+  .card-popular img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 300px;
+    width: 250px;
+  }
+
+  .info-panel {
+    background-color: white;
+    margin-top: -70px;
+    height: 70px;
+    border-top-right-radius: 6px;
+    display: block;
+    margin-left: auto;
+  }
+
+  .info-panel .location {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    margin-top: 13px;
+    color: #042521;
+  }
+
+  .info-panel p {
+    font-size: 12px;
+    color: #80918e;
+  }
+
+  .jumbotron-login {
+    background-image: url(/src/assets/images/login-image.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
+  }
+
+  .btn-signup {
+    background-color: #393939;
+    color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: -150px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-item-1 h2 {
+    font-size: 42px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+  }
+
+  .flex-item-1 h5 {
+    font-size: 22px;
+    margin-top: 107px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+    text-align: left;
+  }
+
+  .flex-item-2 .form-control {
+    background-color: rgb(230, 227, 227);
+    height: 70px;
+    width: 350px;
+    border-radius: 12px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: black;
+  }
+
+  .flex-item-2 {
+    flex: 40%;
+    margin-top: 176px;
+  }
+
+  .btn-login {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    width: 350px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  .btn-loginGoogle {
+    background-color: #ffffff;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 50px;
+    width: 350px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
   .jumbotron-forgot-password form {
     position: absolute;
     margin-left: 30%;
@@ -1500,37 +1818,100 @@ footer .icon-sosmed {
     font-weight: 700;
     margin-top: 50px;
   }
+
+  .info-panel {
+    background-color: white;
+    margin-top: -70px;
+    /* width: 80px; */
+    height: 71px;
+    border-top-right-radius: 8px;
+  }
 }
 
 @media (max-width: 320px) {
-  .btn-save {
-    background-color: #ffcd61;
-    color: #393939;
-    font-family: "Nunito", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 8px;
-    margin-top: 30px;
+  .jumbotron-login {
+    background-image: url(/src/assets/images/login-image.png);
+    background-size: cover;
+    height: 1000px;
+    text-align: left;
   }
 
-  .btn-editpass {
+  .btn-signup {
     background-color: #393939;
     color: #ffcd61;
     font-family: "Nunito", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    border-radius: 8px;
-    margin-top: 30px;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: -150px;
   }
 
-  .btn-cancel {
-    background-color: #cbcbd4;
-    color: #393939;
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-item-1 h2 {
+    font-size: 42px;
+    margin-top: 107px;
+    font-family: "Playfair Display", serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+  }
+
+  .flex-item-1 h5 {
+    font-size: 22px;
+    margin-top: 107px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 50%;
+    text-align: left;
+  }
+
+  .flex-item-2 .form-control {
+    background-color: rgb(230, 227, 227);
+    height: 70px;
+    width: 300px;
+    border-radius: 12px;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
-    font-size: 15px;
-    margin-top: 30px;
-    border-radius: 8px;
+    font-size: 24px;
+    color: black;
+  }
+
+  .flex-item-2 {
+    flex: 40%;
+    margin-top: 176px;
+  }
+
+  .btn-login {
+    background-color: #ffcd61;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    font-size: 18px;
+    width: 300px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  .btn-loginGoogle {
+    background-color: #ffffff;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 50px;
+    width: 300px;
+    height: 60px;
+    border-radius: 12px;
   }
 
   .jumbotron-forgot-password form {
@@ -1538,5 +1919,11 @@ footer .icon-sosmed {
     margin-left: -3%;
     margin-right: -20%;
     margin-top: 80px;
+  }
+
+  .info-panel {
+    background-color: white;
+    margin-top: -70px;
+    height: 71px;
   }
 }

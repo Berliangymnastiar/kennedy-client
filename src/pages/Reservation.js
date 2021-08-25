@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
-import fixiePicture from "../assets/images/fixie.png";
+import fixiePicture from "../assets/images/fixie-image.png";
 
-import HeaderProfile from "../components/Header-profile";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 class reservationPage extends Component {
@@ -18,7 +18,7 @@ class reservationPage extends Component {
   render() {
     return (
       <>
-        <HeaderProfile />
+        <Header isLogin />
         <main>
           <section className="text-reservation">
             <div className="container container-fluid">
