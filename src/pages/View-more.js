@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 import fixiePicture from "../assets/images/fixie-grey-image.png";
@@ -16,6 +16,10 @@ class viewMorePage extends Component {
     if (clicked) this.setState({ clicked: Number(clicked) });
   }
   render() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return <Redirect to="/login" />;
+    }
     return (
       <>
         <Header isLogin />

@@ -45,7 +45,7 @@ function LoginPage() {
 
   return (
     <Fragment>
-      {redirect ? <Redirect to="/vehicle-type" /> : ""}
+      {redirect ? <Redirect to="/" /> : ""}
       <main>
         <section className="jumbotron-fluid jumbotron-login">
           <div className="container container-fluid">
