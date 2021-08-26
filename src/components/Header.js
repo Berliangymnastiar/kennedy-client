@@ -8,7 +8,7 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-home pt-4">
       <div className="container">
-        <Link>
+        <Link to="/">
           <div className="navbar-brand">
             <img src={iconNavbar} alt="icon-navbar" />
           </div>
@@ -44,7 +44,7 @@ function Header() {
             </li>
             {token ? (
               <li className="nav-item">
-                <Link className="nav-link mr-3">
+                <Link to="" className="nav-link mr-3">
                   <img src={iconMessageNavbar} alt="" />
                 </Link>
               </li>
@@ -62,14 +62,13 @@ function Header() {
               <div className="dropdown">
                 <img
                   style={{ backgroundColor: "transparent", border: "none" }}
-                  className="btn btn-secondary dropdown-toggle"
+                  className="btn btn-secondary dropdown-toggle icon-profile"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                   src={iconProfileNavbar}
-                  className="icon-profile"
                   alt=""
                 />
                 <div className="dropdown-menu">

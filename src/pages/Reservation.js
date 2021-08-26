@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 import fixiePicture from "../assets/images/fixie-grey-image.png";
@@ -12,6 +12,12 @@ class reservationPage extends Component {
     clicked: 0,
   };
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    // if (!token) {
+    //   return <Redirect to="/login" />;
+    // }
+
     const clicked = localStorage.getItem("clicked");
     if (clicked) this.setState({ clicked: Number(clicked) });
   }
@@ -19,7 +25,7 @@ class reservationPage extends Component {
   render() {
     return (
       <>
-        <Header isLogin />
+        <Header />
         <main>
           <section className="text-reservation">
             <div className="container container-fluid">
