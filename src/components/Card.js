@@ -33,7 +33,9 @@ function Card() {
           </div>
           <div className="row">
             {vehicles.length === 0 ? (
-              <p>Loading</p>
+              <div className="col-12 mt-5">
+                <p className="text-center">Not Data. . .</p>
+              </div>
             ) : (
               vehicles.map((vehicle) => {
                 return (
