@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import photoProfile from "../assets/images/photo-profile.png";
 import iconPencil from "../assets/images/icon-pencil.png";
