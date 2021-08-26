@@ -25,13 +25,21 @@ function signUpPage() {
                 <form action="#">
                   <div className="form-group">
                     <input
+                      type="name"
+                      className="form-control sm"
+                      id="exampleInputname1"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="form-group mt-4">
+                    <input
                       type="email"
                       className="form-control sm"
                       id="exampleInputEmail1"
                       placeholder="Email"
                     />
                   </div>
-                  <div className="form-group mt-5">
+                  <div className="form-group mt-4">
                     <input
                       type="password"
                       className="form-control sm"
