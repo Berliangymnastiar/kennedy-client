@@ -12,6 +12,11 @@ class reservationPage extends Component {
     clicked: 0,
   };
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return <Redirect to="/login" />;
+    }
+
     const clicked = localStorage.getItem("clicked");
     if (clicked) this.setState({ clicked: Number(clicked) });
   }
