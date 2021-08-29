@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import iconNavbar from "../assets/images/icon-footer.png";
 import iconMessageNavbar from "../assets/images/icon-message.png";
 import iconProfileNavbar from "../assets/images/icon-photo-navbar.png";
+import NavigationLink from "./NavigationLink";
 
 function Header() {
   const token = localStorage.getItem("token");
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-home pt-4">
       <div className="container">
@@ -26,26 +31,15 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <Link to="/" className="nav-link mr-4">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/vehicle-type" className="nav-link mr-4">
-                Vehicle Type
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link mr-4">History</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link mr-4">About</Link>
-            </li>
+            <NavigationLink />
             {token ? (
               <li className="nav-item">
                 <Link to="" className="nav-link mr-3">
-                  <img src={iconMessageNavbar} alt="" />
+                  <img
+                    src={iconMessageNavbar}
+                    style={{ marginTop: "-7px" }}
+                    alt=""
+                  />
                 </Link>
               </li>
             ) : (
@@ -61,7 +55,11 @@ function Header() {
             {token ? (
               <div className="dropdown">
                 <img
-                  style={{ backgroundColor: "transparent", border: "none" }}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    marginTop: "-7px",
+                  }}
                   className="btn btn-secondary dropdown-toggle icon-profile"
                   type="button"
                   id="dropdownMenuButton"
@@ -71,14 +69,14 @@ function Header() {
                   src={iconProfileNavbar}
                   alt=""
                 />
-                <div className="dropdown-menu">
+                <div className="dropdown-menu  slide-left">
                   <Link to="/profile" className="dropdown-item" href="#">
                     Edit Profile
                   </Link>
                   <Link to="" className="dropdown-item" href="#">
                     Help
                   </Link>
-                  <Link to="/" className="dropdown-item">
+                  <Link to="/" className="dropdown-item" onClick={logOut}>
                     Logout
                   </Link>
                 </div>

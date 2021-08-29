@@ -68,7 +68,7 @@ function LoginPage() {
                 ) : (
                   ""
                 )}
-                <form action="#">
+                <form>
                   <div className="form-group">
                     <input
                       type="email"

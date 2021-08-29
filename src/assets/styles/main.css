@@ -184,6 +184,10 @@
   width: 355px;
 }
 
+.card-popular img:hover {
+    cursor: pointer;
+  }
+
 .garis {
   border-bottom: 1px black solid;
 }
@@ -765,6 +769,10 @@ footer .icon-sosmed {
     width: 320px;
   }
 
+  .card-popular img:hover {
+    cursor: pointer;
+  }
+
   .card-popular h5 {
     font-size: 36px;
     font-weight: 600;
@@ -1194,6 +1202,10 @@ footer .icon-sosmed {
     width: 355px;
   }
 
+  .card-popular img:hover {
+    cursor: pointer;
+  }
+
   .info-panel {
     background-color: white;
     margin-top: -70px;
@@ -1441,6 +1453,10 @@ footer .icon-sosmed {
   .card-popular img {
     height: 200px;
     width: 300px;
+  }
+
+  .card-popular img:hover {
+    cursor: pointer;
   }
 
   .info-panel {
@@ -2174,4 +2190,8 @@ footer .icon-sosmed {
     width: 90px;
     height: 40px;
   }
+}
+
+.slide-left {
+  left: -50px;
 }

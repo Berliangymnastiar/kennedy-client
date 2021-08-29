@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 import fixiePicture from "../assets/images/fixie-grey-image.png";
@@ -7,25 +7,8 @@ import fixiePicture from "../assets/images/fixie-grey-image.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-class reservationPage extends Component {
-  state = {
-    clicked: 0,
-  };
-  componentDidMount() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return <Redirect to="/login" />;
-    }
-
-    const clicked = localStorage.getItem("clicked");
-    if (clicked) this.setState({ clicked: Number(clicked) });
-  }
-
+class ReservationPage extends Component {
   render() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return <Redirect to="/login" />;
-    }
     return (
       <>
         <Header />
@@ -63,43 +46,21 @@ class reservationPage extends Component {
                       <button
                         className="btn btn-minus"
                         type="button"
-                        onClick={() =>
-                          this.setState((prevState) => {
-                            const prevClicked = prevState.clicked - 1;
-                            localStorage.setItem(
-                              "clicked",
-                              String(prevClicked)
-                            );
-                            return {
-                              clicked: prevClicked,
-                            };
-                          })
-                        }
+                        onClick={this.props.removeReserved}
                       >
                         -
                       </button>
                     </div>
                     <div className="col-2">
                       <p className="text-value text-center">
-                        {this.state.clicked}
+                        {this.props.stateReserved}
                       </p>
                     </div>
                     <div className="col-2">
                       <button
                         className="btn btn-plus"
                         type="button"
-                        onClick={() =>
-                          this.setState((prevState) => {
-                            const nextClicked = prevState.clicked + 1;
-                            localStorage.setItem(
-                              "clicked",
-                              String(nextClicked)
-                            );
-                            return {
-                              clicked: nextClicked,
-                            };
-                          })
-                        }
+                        onClick={this.props.addReserved}
                       >
                         +
                       </button>
@@ -128,7 +89,7 @@ class reservationPage extends Component {
                       </select>
                     </div>
                     <button className="btn btn-paynow text-center">
-                      Pay now : Rp. 178.000
+                      Pay now : Rp. {this.props.stateReserved * 178000}
                     </button>
                   </form>
                 </div>
@@ -142,4 +103,4 @@ class reservationPage extends Component {
   }
 }
 
-export default reservationPage;
+export default ReservationPage;

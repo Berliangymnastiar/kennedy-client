@@ -1,31 +1,48 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
-import fixiePicture from "../assets/images/fixie-grey-image.png";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-class viewMorePage extends Component {
+class ViewMorePage extends Component {
   state = {
-    clicked: 0,
+    vehicle: {
+      name: "",
+      location: "",
+      price: "",
+      picture: "",
+      capacity: "",
+      category_name: "",
+    },
   };
   componentDidMount() {
     const token = localStorage.getItem("token");
-    if (!token) {
-      return <Redirect to="/login" />;
-    }
-
-    const clicked = localStorage.getItem("clicked");
-    if (clicked) this.setState({ clicked: Number(clicked) });
+    let id = this.props.match.params.id;
+    axios
+      .get(`http://localhost:8000/vehicles/${id}`, {
+        headers: {
+          "x-access-token": `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        let vehicle = result.data.result[0];
+        this.setState({
+          vehicle: {
+            vehicle: vehicle.name,
+            location: vehicle.name,
+            price: vehicle.price,
+            picture: vehicle.picture,
+            capacity: vehicle.capacity,
+            category_name: vehicle.category_name,
+          },
+        });
+      });
   }
-  render() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return <Redirect to="/login" />;
-    }
 
+  render() {
     return (
       <>
         <Header isLogin />
@@ -34,7 +51,7 @@ class viewMorePage extends Component {
             <div className="container container-fluid">
               <div className="row">
                 <div className="col-1">
-                  <Link to="" href="">
+                  <Link to="/vehicle-type" href="">
                     <img
                       src={iconBackBlack}
                       className="icon-back-black"
@@ -52,63 +69,46 @@ class viewMorePage extends Component {
             <div className="container container-fluid">
               <div className="row">
                 <div className="col-lg-6 col-12 text-center">
-                  <img src={fixiePicture} alt="" />
+                  <img src={this.state.vehicle.picture} alt="" />
                 </div>
                 <div className="col-lg-6 col-12">
-                  <h3>Fixie - Gray Only</h3>
-                  <h5>Yogyakarta</h5>
+                  <h3>{this.state.vehicle.name}</h3>
+                  <h5>{this.state.vehicle.location}</h5>
                   <p className="status-payment" style={{ color: "#087E0D" }}>
                     Available
                   </p>
                   <p className="status-payment">No Prepayment</p>
-                  <p className="info-vehicle">Capacity: 1 person</p>
-                  <p className="info-vehicle">Type : Bike</p>
+                  <p className="info-vehicle">
+                    Capacity: {this.state.vehicle.capacity} person
+                  </p>
+                  <p className="info-vehicle">
+                    Type : {this.state.vehicle.category_name}
+                  </p>
                   <p className="info-vehicle">Reservation before 2 PM</p>
                   <h3 className="text-right" style={{ marginTop: "100px" }}>
-                    Rp. 78.000/day
+                    Rp. {this.state.vehicle.price * this.props.stateReserved}
+                    /day
                   </h3>
                   <div className="row" style={{ marginTop: "100px" }}>
                     <div className="col-2">
                       <button
                         className="btn btn-minus"
                         type="button"
-                        onClick={() =>
-                          this.setState((prevState) => {
-                            const prevClicked = prevState.clicked - 1;
-                            localStorage.setItem(
-                              "clicked",
-                              String(prevClicked)
-                            );
-                            return {
-                              clicked: prevClicked,
-                            };
-                          })
-                        }
+                        onClick={this.props.removeReserved}
                       >
                         -
                       </button>
                     </div>
                     <div className="col-2">
                       <p className="text-value text-center">
-                        {this.state.clicked}
+                        {this.props.stateReserved}
                       </p>
                     </div>
                     <div className="col-2">
                       <button
                         className="btn btn-plus"
                         type="button"
-                        onClick={() =>
-                          this.setState((prevState) => {
-                            const nextClicked = prevState.clicked + 1;
-                            localStorage.setItem(
-                              "clicked",
-                              String(nextClicked)
-                            );
-                            return {
-                              clicked: nextClicked,
-                            };
-                          })
-                        }
+                        onClick={this.props.addReserved}
                       >
                         +
                       </button>
@@ -139,4 +139,4 @@ class viewMorePage extends Component {
   }
 }
 
-export default viewMorePage;
+export default ViewMorePage;
