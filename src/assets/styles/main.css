@@ -185,8 +185,8 @@
 }
 
 .card-popular img:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
 
 .garis {
   border-bottom: 1px black solid;
@@ -500,6 +500,7 @@
   font-weight: 700;
   font-family: "Nunito", sans-serif;
   color: #9b0a0a;
+  text-align: left;
 }
 
 .btn-minus {
@@ -569,6 +570,100 @@
   margin-top: 25px;
 }
 /* End CSS reservation.html */
+
+/* CSS Chat */
+.chat-line {
+  border-bottom: 1px solid #dadada;
+}
+.chat-card img {
+  width: 122px;
+  height: 122px;
+  margin-top: 60px;
+}
+
+.chat-card p {
+  margin-top: 85px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+}
+
+.chat-card .chat-date {
+  margin-top: 85px;
+  font-weight: 700;
+  color: #9a9a9d;
+  font-family: "Nunito", sans-serif;
+}
+/* End CSS Chat */
+
+/* CSS History */
+.notification-history h5 {
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  color: #c4c4c4;
+  margin-top: 50px;
+}
+
+.notification-history p {
+  margin-top: 50px;
+  color: #393939;
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+}
+
+.notification-history img {
+  margin-top: 50px;
+  height: 197px;
+  width: 165px;
+  border-radius: 8px;
+}
+
+.notification-history .vehicle-name {
+  color: #393939;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  border-bottom: none;
+  margin-left: -170px;
+}
+
+.notification-history .prepayment {
+  color: #393939;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  border-bottom: none;
+  margin-left: -170px;
+}
+
+.notification-history .date-booking {
+  color: #393939;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  border-bottom: none;
+  margin-left: -170px;
+  margin-top: 0px;
+}
+
+.notification-history .returned {
+  color: #087e0d;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  border-bottom: none;
+  margin-left: -170px;
+  margin-top: 0px;
+}
+
+.notification-history .btn-delete {
+  background-color: #ffcd61;
+  color: black;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 100px;
+}
+/* End CSS History */
 
 footer img {
   margin-top: 70px;
@@ -1037,26 +1132,27 @@ footer .icon-sosmed {
   }
 
   .descripton-reservation img {
-    max-width: 696px;
+    min-width: 450px;
+    border-radius: 8px;
   }
 
   .descripton-reservation h3 {
     margin-top: 0;
-    margin-left: 280px;
+    margin-left: 0px;
     font-size: 32px;
     font-weight: 700;
     font-family: "Playfair Display", serif;
   }
 
   .descripton-reservation h5 {
-    margin-left: 280px;
+    margin-left: 0px;
     font-size: 24px;
     font-weight: 400;
     font-family: "Playfair Display", serif;
   }
 
   .descripton-reservation .status-payment {
-    margin-left: 280px;
+    margin-left: 0px;
     font-size: 16px;
     font-weight: 700;
     font-family: "Nunito", sans-serif;
@@ -1064,7 +1160,7 @@ footer .icon-sosmed {
   }
 
   .descripton-reservation .info-vehicle {
-    margin-left: 280px;
+    margin-left: auto;
     font-size: 16px;
     font-weight: 300;
     font-family: "Nunito", sans-serif;
@@ -1077,7 +1173,7 @@ footer .icon-sosmed {
     font-size: 24px;
     width: 50px;
     height: 59px;
-    margin-left: 280px;
+    margin-left: 0px;
     border-radius: 10px;
     margin-top: 54px;
   }
@@ -1088,7 +1184,7 @@ footer .icon-sosmed {
     font-size: 24px;
     width: 50px;
     height: 59px;
-    margin-left: 280px;
+    margin-left: 10px;
     margin-top: 54px;
     border-radius: 10px;
   }
@@ -1097,7 +1193,7 @@ footer .icon-sosmed {
     font-size: 48px;
     font-weight: 700;
     margin-top: 40px;
-    margin-left: 300px;
+    margin-left: 0px;
   }
 
   .reservation-date {
@@ -1105,12 +1201,12 @@ footer .icon-sosmed {
     color: #393939;
     font-weight: 700;
     font-family: "Nunito", sans-serif;
-    margin-left: 280px;
+    margin-left: 0px;
     margin-top: 50px;
   }
 
   .descripton-reservation form {
-    margin-left: 280px;
+    margin-left: 0px;
     margin-top: 32px;
   }
 
@@ -1141,6 +1237,102 @@ footer .icon-sosmed {
     margin-top: 25px;
   }
   /* End CSS reservation.html */
+
+  /* CSS Payment */
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment img {
+    max-width: 400px;
+  }
+
+  .description-payment h3 {
+    font-size: 34px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: 40px;
+  }
+
+  .description-payment h5 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: 40px;
+  }
+
+  .description-payment .status-payment {
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 1115px;
+    height: 70px;
+    margin-top: 70px;
+  }
+  /* End CSS Payment */
 
   footer p {
     font-size: 16px;
@@ -1348,21 +1540,21 @@ footer .icon-sosmed {
 
   .descripton-reservation h3 {
     margin-top: 0px;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
     font-family: "Playfair Display", serif;
     margin-left: 60px;
   }
 
   .descripton-reservation h5 {
-    font-size: 18px;
+    font-size: 34px;
     font-weight: 400;
     font-family: "Playfair Display", serif;
     margin-left: 60px;
   }
 
   .descripton-reservation .status-payment {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     font-family: "Nunito", sans-serif;
     color: #9b0a0a;
@@ -1373,7 +1565,7 @@ footer .icon-sosmed {
     font-size: 14px;
     font-weight: 300;
     font-family: "Nunito", sans-serif;
-    margin-left: auto;
+    margin-left: 60px;
     color: #393939;
   }
 
@@ -1447,6 +1639,98 @@ footer .icon-sosmed {
     border-radius: 8px;
     margin-top: 25px;
   }
+
+  /* CSS Payment */
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment h3 {
+    font-size: 34px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: 90px;
+  }
+
+  .description-payment h5 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: 90px;
+  }
+
+  .description-payment .status-payment {
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: 90px;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: 90px;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: 90px;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 1115px;
+    height: 70px;
+    margin-top: 70px;
+  }
+  /* End CSS Payment */
 }
 
 @media (max-width: 768px) {
@@ -1616,7 +1900,7 @@ footer .icon-sosmed {
     font-size: 36px;
     font-weight: 700;
     font-family: "Playfair Display", serif;
-    margin-left: auto;
+    margin-left: -80px;
   }
 
   .descripton-reservation h5 {
@@ -1711,6 +1995,100 @@ footer .icon-sosmed {
     width: 300px;
     border-radius: 8px;
     margin-top: 25px;
+  }
+
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment img {
+    max-width: 700px;
+  }
+
+  .description-payment h3 {
+    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: auto;
+  }
+
+  .description-payment h5 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: auto;
+  }
+
+  .description-payment .status-payment {
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 690px;
+    height: 70px;
+    margin-top: 70px;
   }
 }
 
@@ -1915,6 +2293,7 @@ footer .icon-sosmed {
     font-weight: 300;
     font-family: "Nunito", sans-serif;
     color: #393939;
+    text-align: left;
   }
 
   .btn-minus {
@@ -1983,6 +2362,101 @@ footer .icon-sosmed {
     width: 300px;
     border-radius: 8px;
     margin-top: 25px;
+  }
+
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment img {
+    max-width: 400px;
+  }
+
+  .description-payment h3 {
+    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
+  .description-payment h5 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: auto;
+  }
+
+  .description-payment .status-payment {
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 400px;
+    height: 70px;
+    margin-top: 70px;
   }
 }
 
@@ -2053,6 +2527,101 @@ footer .icon-sosmed {
     margin-top: 30px;
     width: 90px;
     height: 60px;
+  }
+
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment img {
+    max-width: 350px;
+  }
+
+  .description-payment h3 {
+    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
+  .description-payment h5 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: auto;
+  }
+
+  .description-payment .status-payment {
+    font-size: 32px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 350px;
+    height: 70px;
+    margin-top: 70px;
   }
 }
 
@@ -2189,6 +2758,102 @@ footer .icon-sosmed {
     margin-top: 30px;
     width: 90px;
     height: 40px;
+  }
+
+  .description-payment {
+    margin-top: 105px;
+  }
+
+  .description-payment img {
+    max-width: 290px;
+  }
+
+  .description-payment h3 {
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
+  .description-payment h5 {
+    font-size: 24px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    margin-left: auto;
+  }
+
+  .description-payment .status-payment {
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    color: #b8becd;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 40px;
+  }
+
+  .description-payment .code-booking {
+    font-size: 24px;
+    font-family: "Playfair Display", serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 53px;
+  }
+
+  .description-payment .copy-code {
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  .description-payment .card {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .description-payment .text-payment-code {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    color: #393939;
+    margin-top: 80px;
+    border-radius: 8px;
+    margin-left: -3px;
+  }
+
+  .description-payment .text-code {
+    font-size: 18px;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Playfair Display", serif;
+  }
+
+  .description-payment .btn-copy {
+    background-color: #393939;
+    color: #ffcd61;
+    margin-left: 150px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 8px;
+    margin-top: -60px;
+  }
+
+  .description-payment .btn-finish-payment {
+    background-color: #ffcd61;
+    color: #393939;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 290px;
+    height: 70px;
+    margin-top: 70px;
   }
 }
 

@@ -88,9 +88,11 @@ class ReservationPage extends Component {
                         <option>5 Day</option>
                       </select>
                     </div>
-                    <button className="btn btn-paynow text-center">
-                      Pay now : Rp. {this.props.stateReserved * 178000}
-                    </button>
+                    <Link to="/payment">
+                      <button className="btn btn-paynow text-center">
+                        Pay now : Rp. {this.props.stateReserved * 178000}
+                      </button>
+                    </Link>
                   </form>
                 </div>
               </div>

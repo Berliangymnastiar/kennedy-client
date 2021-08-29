@@ -15,7 +15,9 @@ function NavigationLink() {
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link mr-4">History</Link>
+        <Link to="/history" className="nav-link mr-4">
+          History
+        </Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link mr-4">About</Link>

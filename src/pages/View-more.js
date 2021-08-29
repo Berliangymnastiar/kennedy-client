@@ -85,7 +85,7 @@ class ViewMorePage extends Component {
                     Type : {this.state.vehicle.category_name}
                   </p>
                   <p className="info-vehicle">Reservation before 2 PM</p>
-                  <h3 className="text-right" style={{ marginTop: "100px" }}>
+                  <h3 className="text-center" style={{ marginTop: "100px" }}>
                     Rp. {this.state.vehicle.price * this.props.stateReserved}
                     /day
                   </h3>
@@ -116,7 +116,9 @@ class ViewMorePage extends Component {
                   </div>
                 </div>
                 <div className="col-md-4 col-4">
-                  <button className="btn btn-chat">Chat Admin</button>
+                  <Link to="/chat" className="btn btn-chat">
+                    <p className="mt-3">Chat admin</p>
+                  </Link>
                 </div>
                 <div className="col-md-4 col-4">
                   <Link
