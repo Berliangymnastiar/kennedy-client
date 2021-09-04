@@ -1,51 +1,30 @@
-import React, { useState, Fragment } from "react";
-import Axios from "axios";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 import iconLoginWithGoogle from "../assets/images/icon-google.svg";
 
 import Footer from "../components/Footer";
 
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { postLogin, setForm } from "../redux/action/authAction";
+
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
-  const [error, setError] = useState("");
-
-  const onChangeEmail = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-    setError("");
-  };
-
-  const onChangePassword = (e) => {
-    const value = e.target.value;
-    setPassword(value);
-    setError("");
-  };
+  const { form } = useSelector((state) => state.authReducer);
+  const { email, password } = form;
+  // const [redirect, setRedirect] = useState(false);
+  const dispatch = useDispatch();
 
   const submitLogin = () => {
-    const data = {
-      email: email,
-      password: password,
-    };
-    Axios.post("http://localhost:8000/auth/login", data)
-      .then((result) => {
-        if (result) {
-          localStorage.setItem("token", result.data.result.token);
-          setRedirect(true);
-        }
-      })
-      .catch((e) => setError(e.response.data.message));
+    postLogin(form);
   };
-
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Redirect to="/" />;
-  }
+  const tokenGet = localStorage.getItem("token");
+  // if (tokenGet) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <Fragment>
-      {redirect ? <Redirect to="/" /> : ""}
+      {tokenGet ? <Redirect to="/" /> : <Redirect to="/login" />}
       <main>
         <section className="jumbotron-fluid jumbotron-login">
           <div className="container container-fluid">
@@ -61,45 +40,47 @@ function LoginPage() {
                 </Link>
               </div>
               <div className="flex-item-2">
-                {error ? (
+                {/* {error ? (
                   <div class="alert alert-danger" role="alert">
                     <p>{error}</p>
                   </div>
                 ) : (
                   ""
-                )}
+                )} */}
                 <form>
                   <div className="form-group">
                     <input
                       type="email"
                       className="form-control sm"
-                      id="exampleInputEmail1"
                       placeholder="Email"
                       value={email}
-                      onChange={onChangeEmail}
+                      onChange={(e) =>
+                        dispatch(setForm("email", e.target.value))
+                      }
                     />
                   </div>
                   <div className="form-group mt-5">
                     <input
                       type="password"
                       className="form-control sm"
-                      id="exampleInputEmail1"
                       placeholder="Password"
                       value={password}
-                      onChange={onChangePassword}
+                      onChange={(e) =>
+                        dispatch(setForm("password", e.target.value))
+                      }
                     />
                   </div>
                   <Link to="/forgot-password" className="forgot-password">
                     Forgot Password
                   </Link>
+                  <button
+                    className="btn btn-login"
+                    type="submit"
+                    onClick={submitLogin}
+                  >
+                    Login
+                  </button>
                 </form>
-                <button
-                  className="btn btn-login"
-                  type="submit"
-                  onClick={submitLogin}
-                >
-                  Login
-                </button>
                 <button className="btn btn-loginGoogle">
                   <img
                     src={iconLoginWithGoogle}

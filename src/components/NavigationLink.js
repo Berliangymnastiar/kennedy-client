@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 function NavigationLink() {
   return (
@@ -15,15 +15,22 @@ function NavigationLink() {
         </Link>
       </li>
       <li className="nav-item">
+        <Link to="/add-vehicle" className="nav-link mr-4">
+          Add vehicle
+        </Link>
+      </li>
+      <li className="nav-item">
         <Link to="/history" className="nav-link mr-4">
           History
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link mr-4">About</Link>
+        <Link to="/" className="nav-link mr-4">
+          About
+        </Link>
       </li>
     </>
   );
 }
 
-export default NavigationLink;
+export default withRouter(NavigationLink);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
+// import { Redirect } from "react-router";
 
 import historyImage from "../assets/images/vespa-image.png";
 
@@ -8,10 +8,6 @@ import Footer from "../components/Footer";
 
 class History extends Component {
   render() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return <Redirect to="/login" />;
-    }
     return (
       <>
         <Header />
@@ -41,9 +37,9 @@ class History extends Component {
                 </div>
                 <div className="col-3">
                   <form>
-                    <div class="form-group">
+                    <div className="form-group">
                       <select
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlSelect1"
                       >
                         <option disabled>Sort by</option>

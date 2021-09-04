@@ -11,6 +11,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function Home() {
+  // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  // if (userInfo) {
+  //   console.log(userInfo[0].roles);
+  // }
   return (
     <>
       <Header />
@@ -56,7 +60,7 @@ function Home() {
                     <div className="col-md-6">
                       <div className="form-group">
                         <input
-                          type="datetime"
+                          type="date"
                           className="form-control sm"
                           id="exampleInputEmail1"
                           placeholder="Date"
@@ -79,7 +83,7 @@ function Home() {
                 <h5>Popular in town</h5>
               </div>
               <div className="col-md-2 d-none d-md-block view-all text-right">
-                <Link>
+                <Link to="#">
                   <div href="#">View All</div>
                 </Link>
               </div>

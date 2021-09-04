@@ -9,6 +9,7 @@ function Header() {
 
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userInfo");
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-home pt-4">
@@ -34,7 +35,7 @@ function Header() {
             <NavigationLink />
             {token ? (
               <li className="nav-item">
-                <Link to="" className="nav-link mr-3">
+                <Link to="/chat" className="nav-link mr-3">
                   <img
                     src={iconMessageNavbar}
                     style={{ marginTop: "-7px" }}

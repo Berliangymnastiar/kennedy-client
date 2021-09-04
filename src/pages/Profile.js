@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 import photoProfile from "../assets/images/photo-profile.png";
 import iconPencil from "../assets/images/icon-pencil.png";
@@ -8,14 +8,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function profilePage() {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    return <Redirect to="/login" />;
-  }
-
   return (
     <>
-      <Header isLogin />
+      <Header />
       <main>
         <section className="profile">
           <div className="container">
@@ -49,9 +44,12 @@ function profilePage() {
                         name="exampleRadios"
                         id="exampleRadios1"
                         value="option1"
-                        checked
+                        defaultChecked
                       />
-                      <label className="form-check-label" for="exampleRadios1">
+                      <label
+                        className="form-check-label"
+                        htmlFor="exampleRadios1"
+                      >
                         Male
                       </label>
                     </div>
@@ -65,7 +63,10 @@ function profilePage() {
                         id="exampleRadios1"
                         value="option1"
                       />
-                      <label className="form-check-label" for="exampleRadios1">
+                      <label
+                        className="form-check-label"
+                        htmlFor="exampleRadios1"
+                      >
                         Female
                       </label>
                     </div>
@@ -86,33 +87,31 @@ function profilePage() {
               <div className="col-12">
                 <form action="#">
                   <div className="form-group">
-                    <label for="exampleFormControlInput1">
+                    <label htmlFor="exampleFormControlInput1">
                       Email address :{" "}
                     </label>
                     <input
                       type="email"
                       className="form-control"
-                      id="exampleFormControlInput1"
+                      id="email"
                       style={{ marginLeft: "-10px" }}
                     />
                   </div>
                   <div className="form-group">
-                    <label for="exampleFormControlInput1">Address : </label>
+                    <label htmlFor="address">Address : </label>
                     <input
                       type="email"
                       className="form-control"
-                      id="exampleFormControlInput1"
+                      id="address"
                       style={{ marginLeft: "-10px" }}
                     />
                   </div>
                   <div className="form-group">
-                    <label for="exampleFormControlInput1">
-                      Mobile number :{" "}
-                    </label>
+                    <label htmlFor="numberPhone">Mobile number : </label>
                     <input
                       type="email"
                       className="form-control"
-                      id="exampleFormControlInput1"
+                      id="numberPhone"
                       style={{ marginLeft: "-10px" }}
                     />
                   </div>
@@ -134,26 +133,22 @@ function profilePage() {
                   <div className="row">
                     <div className="col-md-6 col-12">
                       <div className="form-group">
-                        <label for="exampleFormControlInput1">
-                          Display name :
-                        </label>
+                        <label htmlFor="display-name">Display name :</label>
                         <input
                           type="email"
                           className="form-control"
-                          id="exampleFormControlInput1"
+                          id="display-name"
                           style={{ marginLeft: "-10px" }}
                         />
                       </div>
                     </div>
                     <div className="col-md-6 col-12">
                       <div className="form-group">
-                        <label for="exampleFormControlInput1">
-                          DD/MM/YY :{" "}
-                        </label>
+                        <label htmlFor="date">DD/MM/YY : </label>
                         <input
                           type="date"
                           className="form-control"
-                          id="exampleFormControlInput1"
+                          id="date"
                           style={{ marginLeft: "-10px" }}
                         />
                       </div>

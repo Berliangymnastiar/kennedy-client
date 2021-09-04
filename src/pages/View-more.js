@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, withRouter } from "react-router-dom";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { getVehicleDetail } from "../utils/Vehicles";
+import ButtonReserved from "../components/ButtonReserved";
 
 class ViewMorePage extends Component {
   state = {
@@ -15,37 +16,62 @@ class ViewMorePage extends Component {
       price: "",
       picture: "",
       capacity: "",
+      available_item: "",
       category_name: "",
     },
+    amount: 1,
   };
+
+  removeReserved = () => {
+    this.setState((prevState) => {
+      if (this.state.amount > 1) {
+        return {
+          amount: prevState.amount - 1,
+        };
+      }
+    });
+  };
+
+  addReserved = () => {
+    this.setState((prevState) => {
+      return {
+        amount: prevState.amount + 1,
+      };
+    });
+  };
+
   componentDidMount() {
+    // console.log(this.props.location);
     const token = localStorage.getItem("token");
     let id = this.props.match.params.id;
-    axios
-      .get(`http://localhost:8000/vehicles/${id}`, {
-        headers: {
-          "x-access-token": `Bearer ${token}`,
-        },
-      })
+    getVehicleDetail(token, id)
       .then((result) => {
+        // console.log(result);
         let vehicle = result.data.result[0];
         this.setState({
           vehicle: {
-            vehicle: vehicle.name,
-            location: vehicle.name,
+            name: vehicle.name,
+            location: vehicle.location,
             price: vehicle.price,
             picture: vehicle.picture,
             capacity: vehicle.capacity,
+            available_item: vehicle.available_item,
             category_name: vehicle.category_name,
           },
         });
-      });
+      })
+      .catch((err) => console.log(err.message));
   }
+
+  handleReservation = () => {
+    let id = this.props.match.params.id;
+    this.props.history.push({ pathname: `/reservation/${id}` });
+  };
 
   render() {
     return (
       <>
-        <Header isLogin />
+        <Header />
         <main>
           <section className="text-reservation">
             <div className="container container-fluid">
@@ -74,8 +100,17 @@ class ViewMorePage extends Component {
                 <div className="col-lg-6 col-12">
                   <h3>{this.state.vehicle.name}</h3>
                   <h5>{this.state.vehicle.location}</h5>
-                  <p className="status-payment" style={{ color: "#087E0D" }}>
-                    Available
+                  <p
+                    className="status-payment"
+                    style={
+                      this.state.vehicle.available_item > 0
+                        ? { color: "#087E0D" }
+                        : { color: "red" }
+                    }
+                  >
+                    {this.state.vehicle.available_item > 0
+                      ? "Available"
+                      : "Not Available"}
                   </p>
                   <p className="status-payment">No Prepayment</p>
                   <p className="info-vehicle">
@@ -86,34 +121,14 @@ class ViewMorePage extends Component {
                   </p>
                   <p className="info-vehicle">Reservation before 2 PM</p>
                   <h3 className="text-center" style={{ marginTop: "100px" }}>
-                    Rp. {this.state.vehicle.price * this.props.stateReserved}
+                    Rp. {this.state.vehicle.price * this.state.amount}
                     /day
                   </h3>
-                  <div className="row" style={{ marginTop: "100px" }}>
-                    <div className="col-2">
-                      <button
-                        className="btn btn-minus"
-                        type="button"
-                        onClick={this.props.removeReserved}
-                      >
-                        -
-                      </button>
-                    </div>
-                    <div className="col-2">
-                      <p className="text-value text-center">
-                        {this.props.stateReserved}
-                      </p>
-                    </div>
-                    <div className="col-2">
-                      <button
-                        className="btn btn-plus"
-                        type="button"
-                        onClick={this.props.addReserved}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                  <ButtonReserved
+                    addReserved={this.addReserved}
+                    removeReserved={this.removeReserved}
+                    value={this.state.amount}
+                  />
                 </div>
                 <div className="col-md-4 col-4">
                   <Link to="/chat" className="btn btn-chat">
@@ -121,12 +136,13 @@ class ViewMorePage extends Component {
                   </Link>
                 </div>
                 <div className="col-md-4 col-4">
-                  <Link
+                  <button
                     to="/reservation"
                     className="btn btn-reservation text-center"
+                    onClick={this.handleReservation}
                   >
                     <p className="mt-3">Reservation</p>
-                  </Link>
+                  </button>
                 </div>
                 <div className="col-md-4 col-4">
                   <button className="btn btn-like">Like</button>
@@ -141,4 +157,4 @@ class ViewMorePage extends Component {
   }
 }
 
-export default ViewMorePage;
+export default withRouter(ViewMorePage);

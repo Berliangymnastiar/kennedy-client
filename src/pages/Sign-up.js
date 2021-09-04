@@ -1,12 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 import iconLoginWithGoogle from "../assets/images/icon-google.svg";
+import axios from "axios";
 
 import Footer from "../components/Footer";
 
-function signUpPage() {
+function SignUpPage() {
+  const [name, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  const onChangeUsername = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+  };
+
+  const onChangeEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+
+  const onChangePassword = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  };
+
+  const submitRegister = () => {
+    const data = {
+      name: name,
+      email: email,
+      password: password,
+    };
+    axios.post("http://localhost:8000/auth/register", data).then((result) => {
+      if (result) {
+        setRedirect(true);
+      }
+    });
+  };
+
   return (
     <>
+      {redirect ? <Redirect to="/login" /> : ""}
       <main>
         <section className="jumbotron-fluid jumbotron-login">
           <div className="container container-fluid">
@@ -27,28 +62,33 @@ function signUpPage() {
                     <input
                       type="name"
                       className="form-control sm"
-                      id="exampleInputname1"
                       placeholder="Name"
+                      value={name}
+                      onChange={onChangeUsername}
                     />
                   </div>
                   <div className="form-group mt-4">
                     <input
                       type="email"
                       className="form-control sm"
-                      id="exampleInputEmail1"
                       placeholder="Email"
+                      value={email}
+                      onChange={onChangeEmail}
                     />
                   </div>
                   <div className="form-group mt-4">
                     <input
                       type="password"
                       className="form-control sm"
-                      id="exampleInputEmail1"
                       placeholder="Password"
+                      value={password}
+                      onChange={onChangePassword}
                     />
                   </div>
                 </form>
-                <button className="btn btn-login">Sign Up</button>
+                <button className="btn btn-login" onClick={submitRegister}>
+                  Sign Up
+                </button>
                 <button className="btn btn-loginGoogle">
                   <img
                     src={iconLoginWithGoogle}
@@ -68,4 +108,4 @@ function signUpPage() {
   );
 }
 
-export default signUpPage;
+export default SignUpPage;
