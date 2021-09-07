@@ -11,7 +11,6 @@ import { postLogin, setForm } from "../redux/action/authAction";
 function LoginPage() {
   const { form } = useSelector((state) => state.authReducer);
   const { email, password } = form;
-  // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
 
   const submitLogin = () => {
@@ -39,6 +38,16 @@ function LoginPage() {
                   <button className="btn btn-signup">Sign Up</button>
                 </Link>
               </div>
+              <div
+                className="line-center"
+                style={{
+                  borderLeft: "1px solid white",
+                  height: "auto",
+                  width: "1px",
+                  margin: "0px 3rem",
+                  marginTop: "50px",
+                }}
+              ></div>
               <div className="flex-item-2">
                 {/* {error ? (
                   <div class="alert alert-danger" role="alert">

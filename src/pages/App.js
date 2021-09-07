@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import reduxStore from "../redux/store";
 
@@ -29,7 +29,7 @@ class App extends Component {
       <Provider store={reduxStore}>
         <Router>
           {/* localhost/ */}
-          <AuthRoute path="/" exact component={Home} />
+          <AuthRoute path="/" exact component={Home} {...this.props} />
           {/* localhost/login */}
           <AuthRoute path="/sign-up" exact component={SignUpPage} />
           {/* localhost/login */}
@@ -68,7 +68,10 @@ class App extends Component {
           <AdminRoute path="/add-vehicle">
             <AddVehicle />
           </AdminRoute>
-          <Route path="/edit-vehicle" render={EditVehicle} />
+          <AdminRoute path="/edit-vehicle/:id">
+            <EditVehicle />
+          </AdminRoute>
+          {/* <Route path="/edit-vehicle" render={EditVehicle} /> */}
         </Router>
       </Provider>
     );

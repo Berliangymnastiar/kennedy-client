@@ -49,6 +49,7 @@ function profilePage() {
                       <label
                         className="form-check-label"
                         htmlFor="exampleRadios1"
+                        style={{ fontSize: "18px" }}
                       >
                         Male
                       </label>
@@ -66,6 +67,7 @@ function profilePage() {
                       <label
                         className="form-check-label"
                         htmlFor="exampleRadios1"
+                        style={{ fontSize: "18px" }}
                       >
                         Female
                       </label>

@@ -15,11 +15,6 @@ function NavigationLink() {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/add-vehicle" className="nav-link mr-4">
-          Add vehicle
-        </Link>
-      </li>
-      <li className="nav-item">
         <Link to="/history" className="nav-link mr-4">
           History
         </Link>

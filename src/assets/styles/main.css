@@ -915,10 +915,15 @@ footer .icon-sosmed {
     margin-top: 82px;
   }
 
-  .card-popular a {
+  .card-popular .div-view {
+    cursor: pointer;
     font-size: 16px;
     color: #fb8f1d;
     font-family: "Nunito", sans-serif;
+  }
+
+  .card-popular .div-view:hover {
+    cursor: pointer;
   }
 
   .info-testimonials h5 {
@@ -949,7 +954,7 @@ footer .icon-sosmed {
 
   /* CSS profile.html */
   .profile .text-profile {
-    margin-top: 110px;
+    margin-top: 80px;
     font-size: 30px;
     font-weight: 700;
     font-family: "Nunito", sans-serif;

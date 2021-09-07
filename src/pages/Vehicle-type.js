@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 // import { connect } from "react-redux";
 
@@ -45,9 +45,9 @@ class VehicleType extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.redux);
     const token = localStorage.getItem("token");
     getAllVehicles(token).then(({ data }) => {
+      console.log(data);
       this.setState({
         vehicle: data.result,
       });
@@ -123,7 +123,7 @@ class VehicleType extends Component {
                   <h5>List All Vehicles</h5>
                 </div>
                 <div className="col-md-2 d-none d-md-block view-all text-right">
-                  <Link to="">View All</Link>
+                  <div className="div-view">View All</div>
                 </div>
               </div>
               <div className="row">

@@ -16,6 +16,7 @@ class ReservationPage extends Component {
       location: "",
       price: "",
       picture: "",
+      available_item: "",
     },
     amount: 1,
   };
@@ -32,9 +33,11 @@ class ReservationPage extends Component {
 
   addReserved = () => {
     this.setState((prevState) => {
-      return {
-        amount: prevState.amount + 1,
-      };
+      if (this.state.amount < this.state.vehicle.available_item) {
+        return {
+          amount: prevState.amount + 1,
+        };
+      }
     });
   };
 
@@ -57,6 +60,7 @@ class ReservationPage extends Component {
             location: vehicle.location,
             price: vehicle.price,
             picture: vehicle.picture,
+            available_item: vehicle.available_item,
           },
         });
       })

@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import photoTestimonial from "../assets/images/photo-testimonials.png";
 import iconStars from "../assets/images/icon-stars.png";
-import merapiImage from "../assets/images/merapi-image.png";
-import telukBogamImage from "../assets/images/teluk-bogam.png";
-import bromoImage from "../assets/images/bromo-image.png";
-import malioboroImage from "../assets/images/malioboro-image.png";
+// import merapiImage from "../assets/images/merapi-image.png";
+// import telukBogamImage from "../assets/images/teluk-bogam.png";
+// import bromoImage from "../assets/images/bromo-image.png";
+// import malioboroImage from "../assets/images/malioboro-image.png";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { getAllVehicles } from "../utils/Vehicles";
+import Card from "../components/Card";
 
 function Home() {
-  // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  // if (userInfo) {
-  //   console.log(userInfo[0].roles);
-  // }
+  const userRole = JSON.parse(localStorage.getItem("userInfo"));
+  const [vehicle, setVehicle] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    getAllVehicles(token).then(({ data }) => {
+      console.log(data);
+      setVehicle(data.result);
+    });
+  }, []);
   return (
     <>
       <Header />
@@ -79,63 +87,63 @@ function Home() {
         <section className="card-popular">
           <div className="container container-fluid">
             <div className="row">
-              <div className="col-md-10 col-12 text-center">
-                <h5>Popular in town</h5>
+              <div className="col-md-10 col-12">
+                <h5>List All Vehicles</h5>
               </div>
               <div className="col-md-2 d-none d-md-block view-all text-right">
-                <Link to="#">
-                  <div href="#">View All</div>
-                </Link>
+                <div className="div-view">View All</div>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-3 col-12 mt-4">
-                <img src={merapiImage} className="img-fluid" alt="merapi-img" />
-                <div className="row justify-content-start">
-                  <div className="col-md-6 col-5 info-panel">
-                    <h5 className="location text-left">Merapi</h5>
-                    <p className="text-left">Yogyakarta</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-12 mt-4">
-                <img
-                  src={telukBogamImage}
-                  className="img-fluid"
-                  alt="teluk-bogam-img"
-                />
-                <div className="row justify-content-start">
-                  <div className="col-md-6 col-5 info-panel">
-                    <h5 className="location text-left">Teluk Bogam</h5>
-                    <p className="text-left">Kalimantan</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-12 mt-4">
-                <img src={bromoImage} className="img-fluid" alt="bromo-img" />
-                <div className="row justify-content-start">
-                  <div className="col-md-6 col-5 info-panel">
-                    <h5 className="location text-left">Bromo</h5>
-                    <p className="text-left">Malang</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-12 mt-4">
-                <img
-                  src={malioboroImage}
-                  className="img-fluid"
-                  alt="malioboro-img"
-                />
-                <div className="row justify-content-start">
-                  <div className="col-md-6 col-5 info-panel">
-                    <h5 className="location text-left">Malioboro</h5>
-                    <p className="text-left">Yogyakarta</p>
-                  </div>
-                </div>
-              </div>
+              {vehicle.map((vehicle) => {
+                return (
+                  <Card
+                    key={vehicle.id}
+                    id={vehicle.id}
+                    picture={vehicle.picture}
+                    name={vehicle.name}
+                    location={vehicle.location}
+                  />
+                );
+              })}
             </div>
           </div>
         </section>
+        {/* userInfo[0]?.roles */}
+        {/* {userRole && userRole[0].roles} */}
+        {userRole && userRole[0].roles === "admin" ? (
+          <section className="button add-vehicle">
+            <div className="container container-fluid">
+              <div className="row">
+                <div className="col-12">
+                  <Link
+                    to="/add-vehicle"
+                    className="btn btn-chat"
+                    style={{ width: "100%", height: "90px" }}
+                  >
+                    Add new item
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : (
+          <section className="button add-vehicle d-none">
+            <div className="container container-fluid">
+              <div className="row">
+                <div className="col-12">
+                  <Link
+                    to="/add-vehicle"
+                    className="btn btn-chat"
+                    style={{ width: "100%", height: "90px" }}
+                  >
+                    Add new item
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
         <section className="info-testimonials d-none d-lg-block">
           <div className="container container-fluid">
             <div className="row">

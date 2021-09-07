@@ -6,7 +6,7 @@ import iconBackBlack from "../assets/images/icon-back-black.svg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getVehicleDetail } from "../utils/Vehicles";
-import ButtonReserved from "../components/ButtonReserved";
+// import ButtonReserved from "../components/ButtonReserved";
 
 class ViewMorePage extends Component {
   state = {
@@ -19,26 +19,26 @@ class ViewMorePage extends Component {
       available_item: "",
       category_name: "",
     },
-    amount: 1,
+    // amount: 1,
   };
 
-  removeReserved = () => {
-    this.setState((prevState) => {
-      if (this.state.amount > 1) {
-        return {
-          amount: prevState.amount - 1,
-        };
-      }
-    });
-  };
+  // removeReserved = () => {
+  //   this.setState((prevState) => {
+  //     if (this.state.amount > 1) {
+  //       return {
+  //         amount: prevState.amount - 1,
+  //       };
+  //     }
+  //   });
+  // };
 
-  addReserved = () => {
-    this.setState((prevState) => {
-      return {
-        amount: prevState.amount + 1,
-      };
-    });
-  };
+  // addReserved = () => {
+  //   this.setState((prevState) => {
+  //     return {
+  //       amount: prevState.amount + 1,
+  //     };
+  //   });
+  // };
 
   componentDidMount() {
     // console.log(this.props.location);
@@ -67,6 +67,13 @@ class ViewMorePage extends Component {
     let id = this.props.match.params.id;
     this.props.history.push({ pathname: `/reservation/${id}` });
   };
+
+  handleEditVehicle = () => {
+    let id = this.props.match.params.id;
+    this.props.history.push({ pathname: `/edit-vehicle/${id}` });
+  };
+
+  userRole = JSON.parse(localStorage.getItem("userInfo"));
 
   render() {
     return (
@@ -121,29 +128,40 @@ class ViewMorePage extends Component {
                   </p>
                   <p className="info-vehicle">Reservation before 2 PM</p>
                   <h3 className="text-center" style={{ marginTop: "100px" }}>
-                    Rp. {this.state.vehicle.price * this.state.amount}
+                    Rp. {this.state.vehicle.price}
                     /day
                   </h3>
-                  <ButtonReserved
+                  {/* <ButtonReserved
                     addReserved={this.addReserved}
                     removeReserved={this.removeReserved}
                     value={this.state.amount}
-                  />
+                  /> */}
                 </div>
                 <div className="col-md-4 col-4">
                   <Link to="/chat" className="btn btn-chat">
                     <p className="mt-3">Chat admin</p>
                   </Link>
                 </div>
-                <div className="col-md-4 col-4">
-                  <button
-                    to="/reservation"
-                    className="btn btn-reservation text-center"
-                    onClick={this.handleReservation}
-                  >
-                    <p className="mt-3">Reservation</p>
-                  </button>
-                </div>
+                {this.userRole && this.userRole[0].roles === "admin" ? (
+                  <div className="col-md-4 col-4">
+                    <button
+                      className="btn btn-reservation text-center"
+                      onClick={this.handleEditVehicle}
+                    >
+                      <p className="mt-3">Edit vehicle</p>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="col-md-4 col-4">
+                    <button
+                      className="btn btn-reservation text-center"
+                      onClick={this.handleReservation}
+                    >
+                      <p className="mt-3">Reservation</p>
+                    </button>
+                  </div>
+                )}
+
                 <div className="col-md-4 col-4">
                   <button className="btn btn-like">Like</button>
                 </div>

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 import { Redirect } from "react-router";
 
 export const setForm = (formType, formValue) => {
