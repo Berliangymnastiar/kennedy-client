@@ -1,34 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router";
 
 export function ProtectedRoute({ children, ...rest }) {
-  const [token, setToken] = useState("");
-
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
+  const userLogin = useSelector((state) => state.authReducer);
   return (
     <Route
       {...rest}
       render={() =>
-        token ? children : <Redirect to={{ pathname: "/login" }} />
+        userLogin?.isLogin ? children : <Redirect to={{ pathname: "/login" }} />
       }
     />
   );
 }
 
 export function AdminRoute({ children, ...rest }) {
-  const [userInfo, setUserInfo] = useState("");
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    setUserInfo(JSON.parse(localStorage.getItem("userInfo")));
-    setToken(localStorage.getItem("token"));
-  }, []);
+  const { userInfo, isLogin } = useSelector((state) => state.authReducer);
   return (
     <Route
       {...rest}
       render={() =>
-        token && userInfo[0]?.roles === "admin" ? (
+        isLogin && userInfo[0]?.roles === "admin" ? (
           children
         ) : (
           <Redirect to={{ pathname: "/" }} />
@@ -39,15 +31,12 @@ export function AdminRoute({ children, ...rest }) {
 }
 
 export function AuthRoute({ children, ...rest }) {
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, [token]);
+  const userLogin = useSelector((state) => state.authReducer);
   return (
     <Route
       {...rest}
       render={() =>
-        token ? <Redirect to={{ pathname: "/login" }} /> : children
+        userLogin.isLogin ? <Redirect to={{ pathname: "/login" }} /> : children
       }
     />
   );

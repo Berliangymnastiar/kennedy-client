@@ -11,10 +11,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getAllVehicles } from "../utils/Vehicles";
 import Card from "../components/Card";
+// import { useDispatch, useSelector } from "react-redux";
 
 function Home() {
   const userRole = JSON.parse(localStorage.getItem("userInfo"));
   const [vehicle, setVehicle] = useState([]);
+  // const dispatch = useDispatch();
+  // const authState = useSelector((state) => state.authReducer);
+  // console.log(authState);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -88,7 +92,7 @@ function Home() {
           <div className="container container-fluid">
             <div className="row">
               <div className="col-md-10 col-12">
-                <h5>List All Vehicles</h5>
+                <h5>List Vehicles</h5>
               </div>
               <div className="col-md-2 d-none d-md-block view-all text-right">
                 <div className="div-view">View All</div>
@@ -118,7 +122,7 @@ function Home() {
                 <div className="col-12">
                   <Link
                     to="/add-vehicle"
-                    className="btn btn-chat"
+                    className="btn-chat"
                     style={{ width: "100%", height: "90px" }}
                   >
                     Add new item

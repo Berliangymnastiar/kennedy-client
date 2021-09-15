@@ -56,6 +56,16 @@ function SignUpPage() {
                   <button className="btn btn-signup">Login</button>
                 </Link>
               </div>
+              <div
+                className="line-center"
+                style={{
+                  borderLeft: "1px solid white",
+                  height: "auto",
+                  width: "1px",
+                  margin: "0px 3rem",
+                  marginTop: "50px",
+                }}
+              ></div>
               <div className="flex-item-2">
                 <form action="#">
                   <div className="form-group">

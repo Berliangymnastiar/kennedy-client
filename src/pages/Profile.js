@@ -7,7 +7,7 @@ import iconPencil from "../assets/images/icon-pencil.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-function profilePage() {
+function ProfilePage() {
   return (
     <>
       <Header />
@@ -180,4 +180,4 @@ function profilePage() {
   );
 }
 
-export default profilePage;
+export default ProfilePage;

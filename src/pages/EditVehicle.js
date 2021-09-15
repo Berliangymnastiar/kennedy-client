@@ -14,11 +14,12 @@ function EditVehicle(props) {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
-  const [status, setStatus] = useState([]);
+  const [status, setStatus] = useState("");
   const [image, setImage] = useState("");
   const [imgPreview, setImagePreview] = useState(null);
+  // const vehicleCategories = ["Cars", "Bikes", "Motorbike"];
   const history = useHistory();
 
   useEffect(() => {
@@ -34,8 +35,20 @@ function EditVehicle(props) {
           setPrice(data.price);
           setCategory(data.category_name);
           setStock(data.available_item);
-          setStatus(data.status_name);
           setImagePreview(data.picture);
+          switch (data.category) {
+            case "Cars":
+              setCategory("1");
+              break;
+            case "Bikes":
+              setCategory("2");
+              break;
+            case "Motorbike":
+              setCategory("3");
+              break;
+            default:
+              break;
+          }
         })
         .catch((err) => console.log(err.message));
     }
@@ -48,7 +61,6 @@ function EditVehicle(props) {
     data.append("price", price);
     data.append("category_id", category);
     data.append("available_item", stock);
-    data.append("status_id", status);
     data.append("picture", image);
 
     const token = localStorage.getItem("token");
@@ -143,22 +155,24 @@ function EditVehicle(props) {
                   className="form-control"
                   id="nameVehicle"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(value) => setName(value.target.value)}
                 />
-                <img
-                  src={imgPreview}
-                  style={{
-                    width: "500px",
-                    height: "500px",
-                    borderRadius: "8px",
-                  }}
-                  className="mt-4"
-                  alt=""
-                />
+                <label htmlFor="upload-photo">
+                  <img
+                    src={imgPreview}
+                    style={{
+                      width: "500px",
+                      height: "500px",
+                      borderRadius: "8px",
+                    }}
+                    className="mt-4"
+                    alt=""
+                  />
+                </label>
                 <input
                   type="file"
-                  className="form-control-file mt-3"
-                  id="exampleFormControlFile1"
+                  className="form-control-file mt-3 d-none"
+                  id="upload-photo"
                   onChange={(e) => onImageUpload(e)}
                 />
               </div>
@@ -169,7 +183,7 @@ function EditVehicle(props) {
                   id="location"
                   placeholder="Location"
                   value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(value) => setLocation(value.target.value)}
                 />
                 <label htmlFor="price">Price :</label>
                 <input
@@ -178,19 +192,8 @@ function EditVehicle(props) {
                   id="price"
                   placeholder="Type the price"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(value) => setPrice(value.target.value)}
                 />
-                <label htmlFor="status">Status :</label>
-                <select
-                  className="form-control"
-                  id="status"
-                  style={{ backgroundColor: "#f5f5f6" }}
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
-                  <option value="1">Available</option>
-                  <option value="2">No Available</option>
-                </select>
                 <label htmlFor="stock">Stock :</label>
                 <input
                   type="number"
@@ -198,7 +201,7 @@ function EditVehicle(props) {
                   id="stock"
                   placeholder="Insert stock"
                   value={stock}
-                  onChange={(e) => setStock(e.target.value)}
+                  onChange={(value) => setStock(value.target.value)}
                 />
               </div>
             </div>
@@ -213,14 +216,22 @@ function EditVehicle(props) {
                     width: "100%",
                     height: "60px",
                   }}
-                  defaultValue="0"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
+                  defaultValue={category}
+                  onChange={(value) => setCategory(value.target.value)}
                 >
-                  <option value="0">{category}</option>
+                  <option hidden value="categoryTitle">
+                    Choose Category
+                  </option>
                   <option value="1">Cars</option>
                   <option value="2">Bikes</option>
                   <option value="3">Motorbike</option>
+                  {/* {vehicleCategories.forEach((vehicle, index) => (
+                    console.log(vehicle);
+                    <option key={index} value={index + 1}>
+                      {vehicle}
+                    </option>
+                  ))} */}
+                  {/* <option value="test">{vehicleCategories[0]}</option> */}
                 </select>
               </div>
               <div className="col-md-4">

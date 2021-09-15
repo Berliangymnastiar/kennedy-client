@@ -1,16 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import iconNavbar from "../assets/images/icon-footer.png";
 import iconMessageNavbar from "../assets/images/icon-message.png";
 import iconProfileNavbar from "../assets/images/icon-photo-navbar.png";
+import { logoutAction } from "../redux/action/authAction";
 import NavigationLink from "./NavigationLink";
 
 function Header() {
-  const token = localStorage.getItem("token");
+  const userToken = useSelector((state) => state.authReducer);
 
-  const logOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userInfo");
-  };
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const logout = () => dispatch(logoutAction(history));
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-home pt-4">
       <div className="container">
@@ -33,7 +36,7 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <NavigationLink />
-            {token ? (
+            {userToken?.isLogin ? (
               <li className="nav-item">
                 <Link to="/chat" className="nav-link mr-3">
                   <img
@@ -53,7 +56,7 @@ function Header() {
                 </Link>
               </li>
             )}
-            {token ? (
+            {userToken?.isLogin ? (
               <div className="dropdown">
                 <img
                   style={{
@@ -77,7 +80,7 @@ function Header() {
                   <Link to="" className="dropdown-item" href="#">
                     Help
                   </Link>
-                  <Link to="/" className="dropdown-item" onClick={logOut}>
+                  <Link to="/" className="dropdown-item" onClick={logout}>
                     Logout
                   </Link>
                 </div>

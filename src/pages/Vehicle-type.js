@@ -120,10 +120,10 @@ class VehicleType extends Component {
               )}
               <div className="row">
                 <div className="col-md-10 col-12">
-                  <h5>List All Vehicles</h5>
+                  <h5>List Vehicles</h5>
                 </div>
                 <div className="col-md-2 d-none d-md-block view-all text-right">
-                  <div className="div-view">View All</div>
+                  <div className="div-view">View All {">"}</div>
                 </div>
               </div>
               <div className="row">

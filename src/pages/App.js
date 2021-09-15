@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import reduxStore from "../redux/store";
 
@@ -13,7 +13,6 @@ import Home from "./Home";
 import LoginPage from "./Login";
 import SignUpPage from "./Sign-up";
 import forgotPasswordPage from "./Forgot-password";
-import profilePage from "./Profile";
 import ReservationPage from "./Reservation";
 import ViewMorePage from "./View-more";
 import PaymentPage from "./Payment";
@@ -22,6 +21,7 @@ import History from "./History";
 import VehicleType from "./Vehicle-type";
 import AddVehicle from "./AddVehicle";
 import EditVehicle from "./EditVehicle";
+import ProfilePage from "./Profile";
 
 class App extends Component {
   render() {
@@ -29,19 +29,17 @@ class App extends Component {
       <Provider store={reduxStore}>
         <Router>
           {/* localhost/ */}
-          <AuthRoute path="/" exact component={Home} {...this.props} />
+          <Route path="/" exact component={Home} {...this.props} />
           {/* localhost/login */}
-          <AuthRoute path="/sign-up" exact component={SignUpPage} />
+          <AuthRoute path="/sign-up" component={SignUpPage} />
           {/* localhost/login */}
-          <AuthRoute path="/login" exact component={LoginPage} />
+          <AuthRoute path="/login" component={LoginPage} />
           {/* localhost/forgot-password */}
-          <AuthRoute
-            path="/forgot-password"
-            exact
-            component={forgotPasswordPage}
-          />
+          <AuthRoute path="/forgot-password" component={forgotPasswordPage} />
           {/* localhost/profile */}
-          <AuthRoute path="/profile" component={profilePage} />
+          <ProtectedRoute path="/profile">
+            <ProfilePage {...this.props} />
+          </ProtectedRoute>
           {/* localhost/vehicle-type */}
           <ProtectedRoute path="/vehicle-type">
             <VehicleType {...this.props} />

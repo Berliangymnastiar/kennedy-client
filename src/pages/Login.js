@@ -1,29 +1,37 @@
-import React, { Fragment } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import iconLoginWithGoogle from "../assets/images/icon-google.svg";
 
 import Footer from "../components/Footer";
+import { loginAction } from "../redux/action/authAction";
 
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { postLogin, setForm } from "../redux/action/authAction";
+// import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
+// import { postLogin } from "../redux/action/authAction";
+// import { onLogin } from "../utils/Auth";
 
 function LoginPage() {
-  const { form } = useSelector((state) => state.authReducer);
-  const { email, password } = form;
+  // const { form } = useSelector((state) => state.authReducer);
+  // const { email, password } = form;
+  // const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
   const dispatch = useDispatch();
 
-  const submitLogin = () => {
-    postLogin(form);
+  const form = new URLSearchParams();
+  const submitLogin = (e) => {
+    e.preventDefault();
+    form.append("email", email);
+    form.append("password", password);
+    dispatch(loginAction(form, history));
+    // .then((result) => {
   };
-  const tokenGet = localStorage.getItem("token");
-  // if (tokenGet) {
-  //   return <Redirect to="/" />;
-  // }
 
   return (
     <Fragment>
-      {tokenGet ? <Redirect to="/" /> : <Redirect to="/login" />}
       <main>
         <section className="jumbotron-fluid jumbotron-login">
           <div className="container container-fluid">
@@ -63,9 +71,7 @@ function LoginPage() {
                       className="form-control sm"
                       placeholder="Email"
                       value={email}
-                      onChange={(e) =>
-                        dispatch(setForm("email", e.target.value))
-                      }
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="form-group mt-5">
@@ -74,9 +80,7 @@ function LoginPage() {
                       className="form-control sm"
                       placeholder="Password"
                       value={password}
-                      onChange={(e) =>
-                        dispatch(setForm("password", e.target.value))
-                      }
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <Link to="/forgot-password" className="forgot-password">

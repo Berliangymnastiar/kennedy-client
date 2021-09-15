@@ -29,7 +29,7 @@ function AddVehicle(props) {
     data.append("price", price);
     data.append("category_id", category);
     data.append("available_item", stock);
-    data.append("status", status);
+    data.append("status_id", status);
     data.append("picture", image);
 
     const token = localStorage.getItem("token");
