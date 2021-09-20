@@ -1,13 +1,14 @@
 import React from "react";
 
-function ButtonReserved({ addReserved, removeReserved, value }) {
+function ButtonReserved({ buttonPlus, buttonMinus, value, disabled }) {
   return (
     <div className="row" style={{ marginTop: "100px" }}>
       <div className="col-2">
         <button
           className="btn btn-minus"
           type="button"
-          onClick={removeReserved}
+          onClick={buttonMinus}
+          disabled={disabled}
         >
           -
         </button>
@@ -16,7 +17,12 @@ function ButtonReserved({ addReserved, removeReserved, value }) {
         <p className="text-value text-center">{value}</p>
       </div>
       <div className="col-2">
-        <button className="btn btn-plus" type="button" onClick={addReserved}>
+        <button
+          className="btn btn-plus"
+          type="button"
+          onClick={buttonPlus}
+          disabled={disabled}
+        >
           +
         </button>
       </div>

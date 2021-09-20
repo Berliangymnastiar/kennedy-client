@@ -1,14 +1,15 @@
+import axios from "axios";
+import { useHistory } from "react-router";
 import React, { useEffect, useState } from "react";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
-
-import iconBackBlack from "../assets/images/icon-back-black.svg";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link, withRouter, useHistory } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { getVehicleDetail } from "../utils/Vehicles";
-import axios from "axios";
+import iconBackBlack from "../assets/images/icon-back-black.svg";
 
 function EditVehicle(props) {
   const [name, setName] = useState("");
@@ -16,10 +17,8 @@ function EditVehicle(props) {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
-  const [status, setStatus] = useState("");
   const [image, setImage] = useState("");
   const [imgPreview, setImagePreview] = useState(null);
-  // const vehicleCategories = ["Cars", "Bikes", "Motorbike"];
   const history = useHistory();
 
   useEffect(() => {
@@ -33,10 +32,9 @@ function EditVehicle(props) {
           setName(data.name);
           setLocation(data.location);
           setPrice(data.price);
-          setCategory(data.category_name);
           setStock(data.available_item);
           setImagePreview(data.picture);
-          switch (data.category) {
+          switch (data.category_name) {
             case "Cars":
               setCategory("1");
               break;
@@ -61,7 +59,9 @@ function EditVehicle(props) {
     data.append("price", price);
     data.append("category_id", category);
     data.append("available_item", stock);
-    data.append("picture", image);
+    if (image !== null && image !== undefined && image !== "") {
+      data.append("picture", image);
+    }
 
     const token = localStorage.getItem("token");
     const id = props.match.params.id;
@@ -79,11 +79,13 @@ function EditVehicle(props) {
           setPrice("");
           setCategory("");
           setStock("");
-          setStatus("");
           setImage("");
           setImagePreview(null);
-          history.push("/");
-          console.log("update success", res);
+          toast.success("edit vehicle success!", {
+            position: toast.POSITION.TOP_CENTER,
+            theme: "colored",
+          });
+          history.push({ pathname: `/edit-vehicle/${id}` });
         }
       })
       .catch((err) => {
@@ -216,22 +218,13 @@ function EditVehicle(props) {
                     width: "100%",
                     height: "60px",
                   }}
-                  defaultValue={category}
+                  value={category}
                   onChange={(value) => setCategory(value.target.value)}
                 >
-                  <option hidden value="categoryTitle">
-                    Choose Category
-                  </option>
+                  <option hidden>Choose Category</option>
                   <option value="1">Cars</option>
                   <option value="2">Bikes</option>
                   <option value="3">Motorbike</option>
-                  {/* {vehicleCategories.forEach((vehicle, index) => (
-                    console.log(vehicle);
-                    <option key={index} value={index + 1}>
-                      {vehicle}
-                    </option>
-                  ))} */}
-                  {/* <option value="test">{vehicleCategories[0]}</option> */}
                 </select>
               </div>
               <div className="col-md-4">
@@ -242,6 +235,7 @@ function EditVehicle(props) {
                 >
                   Save changes
                 </button>
+                <ToastContainer style={{ fontSize: "16px" }} />
               </div>
               <div className="col-md-4">
                 <button

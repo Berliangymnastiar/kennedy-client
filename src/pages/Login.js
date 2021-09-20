@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
@@ -7,15 +9,7 @@ import iconLoginWithGoogle from "../assets/images/icon-google.svg";
 import Footer from "../components/Footer";
 import { loginAction } from "../redux/action/authAction";
 
-// import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
-// import { postLogin } from "../redux/action/authAction";
-// import { onLogin } from "../utils/Auth";
-
 function LoginPage() {
-  // const { form } = useSelector((state) => state.authReducer);
-  // const { email, password } = form;
-  // const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -26,8 +20,22 @@ function LoginPage() {
     e.preventDefault();
     form.append("email", email);
     form.append("password", password);
+    if (email === "") {
+      // toast("Name must be field!");
+      // return;
+      toast.error("email must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (password === "") {
+      // toast("Name must be field!");
+      // return;
+      toast.error("password must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    }
     dispatch(loginAction(form, history));
-    // .then((result) => {
   };
 
   return (
@@ -93,6 +101,7 @@ function LoginPage() {
                   >
                     Login
                   </button>
+                  <ToastContainer style={{ fontSize: "16px" }} />
                 </form>
                 <button className="btn btn-loginGoogle">
                   <img

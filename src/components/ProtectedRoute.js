@@ -36,7 +36,11 @@ export function AuthRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={() =>
-        userLogin.isLogin ? <Redirect to={{ pathname: "/login" }} /> : children
+        userLogin?.isLogin === false ? (
+          <Redirect to={{ pathname: "/login" }} />
+        ) : (
+          children
+        )
       }
     />
   );

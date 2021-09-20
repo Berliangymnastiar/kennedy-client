@@ -37,7 +37,7 @@ class App extends Component {
           {/* localhost/forgot-password */}
           <AuthRoute path="/forgot-password" component={forgotPasswordPage} />
           {/* localhost/profile */}
-          <ProtectedRoute path="/profile">
+          <ProtectedRoute path="/profile/:id">
             <ProfilePage {...this.props} />
           </ProtectedRoute>
           {/* localhost/vehicle-type */}
@@ -60,8 +60,8 @@ class App extends Component {
           <ProtectedRoute path="/reservation/:id">
             <ReservationPage {...this.props} />
           </ProtectedRoute>
-          <ProtectedRoute path="/payment">
-            <PaymentPage />
+          <ProtectedRoute path="/payment/:id">
+            <PaymentPage {...this.props} />
           </ProtectedRoute>
           <AdminRoute path="/add-vehicle">
             <AddVehicle />

@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
@@ -6,14 +7,37 @@ import iconMessageNavbar from "../assets/images/icon-message.png";
 import iconProfileNavbar from "../assets/images/icon-photo-navbar.png";
 import { logoutAction } from "../redux/action/authAction";
 import NavigationLink from "./NavigationLink";
+import { confirmAlert } from "react-confirm-alert";
 
 function Header() {
   const userToken = useSelector((state) => state.authReducer);
+  const id = userToken?.userInfo[0]?.id;
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const logout = () => dispatch(logoutAction(history));
+  const logout = () => {
+    confirmAlert({
+      title: "Confirm to logout",
+      message: "Are you sure logout?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            dispatch(logoutAction(history));
+          },
+        },
+        {
+          label: "No",
+          onClick: () => console.log("user disagree"),
+        },
+      ],
+    });
+  };
+
+  const handleProfile = (id) => {
+    history.push({ pathname: `/profile/${id}` });
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-home pt-4">
       <div className="container">
@@ -74,9 +98,12 @@ function Header() {
                   alt=""
                 />
                 <div className="dropdown-menu  slide-left">
-                  <Link to="/profile" className="dropdown-item" href="#">
+                  <div
+                    onClick={() => handleProfile(id)}
+                    className="dropdown-item"
+                  >
                     Edit Profile
-                  </Link>
+                  </div>
                   <Link to="" className="dropdown-item" href="#">
                     Help
                   </Link>

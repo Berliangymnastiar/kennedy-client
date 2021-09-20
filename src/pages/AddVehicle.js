@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, withRouter, useHistory } from "react-router-dom";
 
-import iconBackBlack from "../assets/images/icon-back-black.svg";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link, withRouter } from "react-router-dom";
+
+import iconBackBlack from "../assets/images/icon-back-black.svg";
+import backgroundUploadImg from "../assets/images/add-file-image.png";
 
 function AddVehicle(props) {
   const [name, setName] = useState("");
@@ -13,23 +16,54 @@ function AddVehicle(props) {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState([]);
   const [stock, setStock] = useState("");
-  const [status, setStatus] = useState([]);
   const [image, setImage] = useState("");
   const [imgPreview, setImagePreview] = useState(null);
-  const [alert, setAlert] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     console.log("params", props);
   }, [props]);
 
   const onSubmit = () => {
+    if (name === "") {
+      // toast("Name must be field!");
+      // return;
+      toast.error("name must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (location === "") {
+      toast.error("location must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (image === "") {
+      toast.error("image must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (price === "") {
+      toast.error("price must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (category === "") {
+      toast.error("price must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    } else if (stock === "") {
+      toast.error("stock must be filled!", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
+    }
     const data = new FormData();
     data.append("name", name);
     data.append("location", location);
     data.append("price", price);
     data.append("category_id", category);
     data.append("available_item", stock);
-    data.append("status_id", status);
     data.append("picture", image);
 
     const token = localStorage.getItem("token");
@@ -47,10 +81,13 @@ function AddVehicle(props) {
           setPrice("");
           setCategory("");
           setStock("");
-          setStatus("");
           setImage("");
-          setAlert(true);
           setImagePreview(null);
+          toast.success("add vehicle success!", {
+            position: toast.POSITION.TOP_CENTER,
+            theme: "colored",
+          });
+          history.push("/add-vehicle");
         }
       })
       .catch((err) => {
@@ -82,19 +119,6 @@ function AddVehicle(props) {
             </div>
           </div>
         </section>
-        {alert && (
-          <section className="alert">
-            <div className="container container-fluid">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="alert alert-success" role="alert">
-                    Success add vehicle
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
         <section className="form-add-image">
           <div className="container container-fluid">
             <div className="row">
@@ -107,16 +131,22 @@ function AddVehicle(props) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <img
-                  src={imgPreview}
-                  style={{ maxWidth: "540px" }}
-                  className="mt-4"
-                  alt=""
-                />
+                <label htmlFor="upload-image">
+                  <img
+                    src={
+                      image !== null && image !== undefined && image !== ""
+                        ? imgPreview
+                        : backgroundUploadImg
+                    }
+                    style={{ maxWidth: "540px" }}
+                    className="mt-4"
+                    alt=""
+                  />
+                </label>
                 <input
                   type="file"
-                  className="form-control-file mt-3"
-                  id="exampleFormControlFile1"
+                  className="form-control-file mt-3 d-none upload"
+                  id="upload-image"
                   onChange={(e) => onImageUpload(e)}
                 />
               </div>
@@ -146,17 +176,6 @@ function AddVehicle(props) {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
-                <label htmlFor="status">Status :</label>
-                <select
-                  className="form-control"
-                  id="status"
-                  style={{ backgroundColor: "#f5f5f6" }}
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
-                  <option value="1">Available</option>
-                  <option value="2">No Available</option>
-                </select>
                 <label htmlFor="stock">Stock :</label>
                 <input
                   type="number"
@@ -182,6 +201,7 @@ function AddVehicle(props) {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
+                  <option hidden>Select Category</option>
                   <option value="1">Cars</option>
                   <option value="2">Bikes</option>
                   <option value="3">Motorbike</option>
@@ -196,6 +216,7 @@ function AddVehicle(props) {
                 >
                   Save Change
                 </button>
+                <ToastContainer style={{ fontSize: "16px" }} />
               </div>
             </div>
           </div>

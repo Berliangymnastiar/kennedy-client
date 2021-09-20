@@ -6,13 +6,16 @@ import axios from "axios";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
-import { getAllVehicles } from "../utils/Vehicles";
+// import { getAllVehicles } from "../utils/Vehicles";
 
 class VehicleType extends Component {
   state = {
     data: [],
     vehicle: [],
     search: [],
+    motorbike: [],
+    bikes: [],
+    cars: [],
   };
 
   axiosSearch = (query, token) => {
@@ -45,13 +48,59 @@ class VehicleType extends Component {
   };
 
   componentDidMount() {
+    const url = "http://localhost:8000/vehicles";
     const token = localStorage.getItem("token");
-    getAllVehicles(token).then(({ data }) => {
-      console.log(data);
-      this.setState({
-        vehicle: data.result,
+    const getByCategory = (filter) => {
+      axios
+        .get(url, {
+          params: { filter: filter, limit: 4 },
+          headers: {
+            "x-access-token": `Bearer ${token}`,
+          },
+        })
+        .then(({ data }) => {
+          // console.log(data.result);
+          if (filter === "motorbike") {
+            this.setState({
+              motorbike: data.result,
+            });
+          }
+          if (filter === "bikes") {
+            this.setState({
+              bikes: data.result,
+            });
+          }
+          if (filter === "cars") {
+            this.setState({
+              cars: data.result,
+            });
+          }
+        });
+    };
+
+    axios
+      .get("http://localhost:8000/vehicles", {
+        params: { limit: 4 },
+        headers: {
+          "x-access-token": `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {
+        this.setState({
+          vehicle: data.result,
+        });
       });
-    });
+
+    // getAllVehicles(token).then(({ data }) => {
+    //   // console.log(data);
+    //   this.setState({
+    //     vehicle: data.result,
+    //   });
+    // });
+
+    getByCategory("motorbike");
+    getByCategory("bikes");
+    getByCategory("cars");
   }
 
   render() {
@@ -120,7 +169,7 @@ class VehicleType extends Component {
               )}
               <div className="row">
                 <div className="col-md-10 col-12">
-                  <h5>List Vehicles</h5>
+                  <h5>List Vehicles Popular</h5>
                 </div>
                 <div className="col-md-2 d-none d-md-block view-all text-right">
                   <div className="div-view">View All {">"}</div>
@@ -128,6 +177,60 @@ class VehicleType extends Component {
               </div>
               <div className="row">
                 {this.state.vehicle.map((vehicle) => {
+                  return (
+                    <Card
+                      key={vehicle.id}
+                      id={vehicle.id}
+                      picture={vehicle.picture}
+                      name={vehicle.name}
+                      location={vehicle.location}
+                    />
+                  );
+                })}
+              </div>
+              <div className="row">
+                <div className="col-md-10 col-12">
+                  <h5>Cars</h5>
+                </div>
+              </div>
+              <div className="row">
+                {this.state.cars.map((vehicle) => {
+                  return (
+                    <Card
+                      key={vehicle.id}
+                      id={vehicle.id}
+                      picture={vehicle.picture}
+                      name={vehicle.name}
+                      location={vehicle.location}
+                    />
+                  );
+                })}
+              </div>
+              <div className="row">
+                <div className="col-md-10 col-12">
+                  <h5>Motorbike</h5>
+                </div>
+              </div>
+              <div className="row">
+                {this.state.motorbike.map((vehicle) => {
+                  return (
+                    <Card
+                      key={vehicle.id}
+                      id={vehicle.id}
+                      picture={vehicle.picture}
+                      name={vehicle.name}
+                      location={vehicle.location}
+                    />
+                  );
+                })}
+              </div>
+              <div className="row">
+                <div className="col-md-10 col-12">
+                  <h5>Bikes</h5>
+                </div>
+              </div>
+              <div className="row">
+                {this.state.bikes.map((vehicle) => {
                   return (
                     <Card
                       key={vehicle.id}
