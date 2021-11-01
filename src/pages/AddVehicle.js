@@ -15,6 +15,7 @@ function AddVehicle(props) {
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState([]);
+  const [description, setDescription] = useState("");
   const [stock, setStock] = useState("");
   const [image, setImage] = useState("");
   const [imgPreview, setImagePreview] = useState(null);
@@ -159,14 +160,14 @@ function AddVehicle(props) {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                {/* <input
-                  type="text"
-                  className="form-control mt-4"
-                  id="description"
-                  placeholder="Description (max up to 150 words)"
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                /> */}
+                ></textarea>
                 <label htmlFor="price">Price :</label>
                 <input
                   type="number"

@@ -1,7 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import iconLoginWithGoogle from "../assets/images/icon-google.svg";
-import axios from "axios";
 
 import Footer from "../components/Footer";
 
@@ -27,6 +29,42 @@ function SignUpPage() {
   };
 
   const submitRegister = () => {
+    if (name === "") {
+      toast.error("Name are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (name.length <= 5) {
+      toast.error("Name must have 5 or more characters!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (email === "") {
+      toast.error("Email are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (!email.includes("@")) {
+      toast.error("Register failed! Please input a valid email!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (password === "") {
+      toast.error("Password are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (password.length <= 6) {
+      toast.error("Password must have 6 or more characters!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
     const data = {
       name: name,
       email: email,
@@ -99,6 +137,7 @@ function SignUpPage() {
                 <button className="btn btn-login" onClick={submitRegister}>
                   Sign Up
                 </button>
+                <ToastContainer style={{ fontSize: "16px" }} />
                 <button className="btn btn-loginGoogle">
                   <img
                     src={iconLoginWithGoogle}

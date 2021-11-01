@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import iconNavbar from "../assets/images/icon-footer.png";
 import iconMessageNavbar from "../assets/images/icon-message.png";
-import iconProfileNavbar from "../assets/images/icon-photo-navbar.png";
 import { logoutAction } from "../redux/action/authAction";
 import NavigationLink from "./NavigationLink";
 import { confirmAlert } from "react-confirm-alert";
 
 function Header() {
   const userToken = useSelector((state) => state.authReducer);
+  const URL = process.env.REACT_APP_BASE_URL;
   const id = userToken?.userInfo[0]?.id;
+  const imageUser = URL + userToken?.userInfo[0]?.picture;
+  // console.log(imageUser);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -87,6 +89,7 @@ function Header() {
                     backgroundColor: "transparent",
                     border: "none",
                     marginTop: "-7px",
+                    maxWidth: "70px",
                   }}
                   className="btn btn-secondary dropdown-toggle icon-profile"
                   type="button"
@@ -94,7 +97,7 @@ function Header() {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  src={iconProfileNavbar}
+                  src={imageUser}
                   alt=""
                 />
                 <div className="dropdown-menu  slide-left">

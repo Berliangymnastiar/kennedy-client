@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 import iconBackBlack from "../assets/images/icon-back-black.svg";
-import fixiePicture from "../assets/images/fixie-grey-image.png";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 function PaymentPage(props) {
+  const URL = process.env.REACT_APP_BASE_URL;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState();
@@ -20,27 +21,28 @@ function PaymentPage(props) {
   const [totalVehicle, setTotalVehicle] = useState(1);
   const [bookingDate, setBookingDate] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("CASH");
-
   const history = useHistory();
+
+  // const history = useHistory();
+  // console.log(bookingDate.slice(0, 10));
 
   useEffect(() => {
     const { id } = props.match.params;
     axios
-      .get(`http://localhost:8000/transactions/${id}`)
+      .get(`${URL}/transactions/${id}`)
       .then((result) => {
         const data = result.data.result[0];
         setName(data.name);
         setLocation(data.location);
         setPrice(data.price);
-        setImage(data.picture);
+        setImage(URL + data.picture);
         setBookingDate(data.date);
         setTotalVehicle(data.total_vehicle);
         setEmail(data.email);
         setPhone(data.phonenumber);
-        // setBookingDuration(data.booking_duration);
       })
       .catch((err) => console.log(err));
-  }, [props]);
+  }, [props, URL]);
 
   const { id } = props.match.params;
   const updateStatusPayment = "WAITING APPROVE";
@@ -52,10 +54,11 @@ function PaymentPage(props) {
     axios
       .patch(`http://localhost:8000/transactions/${id}`, data)
       .then(({ data }) => {
-        // const transactionId = data.result.insertId;
-        // history.push({
-        //   pathname: `/payment/${transactionId}`,
-        // });
+        history.push("/history");
+        toast.success("Payment success!", {
+          position: toast.POSITION.TOP_CENTER,
+          theme: "colored",
+        });
         console.log(data);
       })
       .catch((err) => console.log(err));
@@ -96,19 +99,19 @@ function PaymentPage(props) {
             </div>
             <div className="row">
               <div className="col-lg-4  col-sm-12">
-                <div class="card">
-                  <div class="card-body">
+                <div className="card">
+                  <div className="card-body">
                     <p className="text-center">Quantity : {totalVehicle}</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-8 col-12">
-                <div class="card">
-                  <div class="card-body">
+                <div className="card">
+                  <div className="card-body">
                     <p className="text-center">
                       Reservation Date :{" "}
                       <span style={{ marginLeft: "50px", fontWeight: "300" }}>
-                        {bookingDate}
+                        {bookingDate.slice(0, 10)}
                       </span>
                     </p>
                   </div>
@@ -117,19 +120,14 @@ function PaymentPage(props) {
             </div>
             <div className="row">
               <div className="col-lg-4">
-                <div class="card">
-                  <div class="card-body">
+                <div className="card">
+                  <div className="card-body">
                     <p className="text-center">Order Details</p>
                     <p className="text-center">
                       <span style={{ fontWeight: 300, fontSize: "24px" }}>
                         1 {name} : {price}
                       </span>
                     </p>
-                    {/* <p className="text-center">
-                      <span style={{ fontWeight: 300, fontSize: "24px" }}>
-                        1 bike : Rp. 78.000
-                      </span>
-                    </p> */}
                     <p className="text-center">
                       Total : {totalVehicle * price}
                     </p>
@@ -137,9 +135,9 @@ function PaymentPage(props) {
                 </div>
               </div>
               <div className="col-lg-8">
-                <div class="card">
-                  <div class="card-body">
-                    <p className="text-left mt-5">Identitiy :</p>
+                <div className="card">
+                  <div className="card-body">
+                    <p className="text-left ">Identitiy :</p>
                     <p className="text-left ">
                       <span style={{ fontWeight: 300, fontSize: "24px" }}>
                         {phone}
@@ -159,8 +157,8 @@ function PaymentPage(props) {
                 <h5 className="text-payment-code">Payment code : </h5>
               </div>
               <div className="col-lg-5">
-                <div class="card">
-                  <div class="card-body">
+                <div className="card">
+                  <div className="card-body">
                     <p className="text-left text-code">
                       #FG1209878YZS
                       <button className="btn btn-copy">Copy</button>
@@ -169,11 +167,11 @@ function PaymentPage(props) {
                 </div>
               </div>
               <div className="col-lg-4">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="form-group">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="form-group">
                       <select
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlSelect1"
                         value={paymentMethod}
                         onChange={(e) => setPaymentMethod(e.target.value)}
@@ -198,6 +196,7 @@ function PaymentPage(props) {
                   Finish payment :
                   <span style={{ color: "#9B0A0A" }}> 59:30</span>
                 </button>
+                <ToastContainer style={{ fontSize: "16px" }} />
               </div>
             </div>
           </div>

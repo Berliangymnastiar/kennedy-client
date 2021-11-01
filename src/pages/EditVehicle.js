@@ -12,6 +12,7 @@ import { getVehicleDetail } from "../utils/Vehicles";
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 
 function EditVehicle(props) {
+  const URL = process.env.REACT_APP_BASE_URL;
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
@@ -28,12 +29,11 @@ function EditVehicle(props) {
       getVehicleDetail(token, id)
         .then((res) => {
           const data = res.data.result[0];
-          console.log(data);
           setName(data.name);
           setLocation(data.location);
           setPrice(data.price);
           setStock(data.available_item);
-          setImagePreview(data.picture);
+          setImagePreview(URL + data.picture);
           switch (data.category_name) {
             case "Cars":
               setCategory("1");
@@ -50,7 +50,7 @@ function EditVehicle(props) {
         })
         .catch((err) => console.log(err.message));
     }
-  }, [props]);
+  }, [props.match.params.id, URL]);
 
   const onSubmit = () => {
     const data = new FormData();

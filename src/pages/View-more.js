@@ -19,29 +19,9 @@ class ViewMorePage extends Component {
       available_item: "",
       category_name: "",
     },
-    // amount: 1,
   };
 
-  // removeReserved = () => {
-  //   this.setState((prevState) => {
-  //     if (this.state.amount > 1) {
-  //       return {
-  //         amount: prevState.amount - 1,
-  //       };
-  //     }
-  //   });
-  // };
-
-  // addReserved = () => {
-  //   this.setState((prevState) => {
-  //     return {
-  //       amount: prevState.amount + 1,
-  //     };
-  //   });
-  // };
-
   componentDidMount() {
-    // console.log(this.props.location);
     const token = localStorage.getItem("token");
     let id = this.props.match.params.id;
     getVehicleDetail(token, id)
@@ -76,6 +56,7 @@ class ViewMorePage extends Component {
   userRole = JSON.parse(localStorage.getItem("userInfo"));
 
   render() {
+    const URL = process.env.REACT_APP_BASE_URL;
     return (
       <>
         <Header />
@@ -102,7 +83,7 @@ class ViewMorePage extends Component {
             <div className="container container-fluid">
               <div className="row">
                 <div className="col-lg-6 col-12 text-center">
-                  <img src={this.state.vehicle.picture} alt="" />
+                  <img src={URL + this.state.vehicle.picture} alt="" />
                 </div>
                 <div className="col-lg-6 col-12">
                   <h3>{this.state.vehicle.name}</h3>
@@ -131,11 +112,6 @@ class ViewMorePage extends Component {
                     Rp. {this.state.vehicle.price}
                     /day
                   </h3>
-                  {/* <ButtonReserved
-                    addReserved={this.addReserved}
-                    removeReserved={this.removeReserved}
-                    value={this.state.amount}
-                  /> */}
                 </div>
                 <div className="col-md-4 col-4">
                   <Link to="/chat" className="btn btn-chat">

@@ -5,6 +5,7 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("userInfo"))
     : {},
   isLogin: localStorage.getItem("userInfo") ? true : false,
+  error: {},
 };
 
 const authReducer = (state = initialState, action) => {
@@ -17,6 +18,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isLogin: true,
         userInfo: action.payload.userInfo,
+        error: action.payload,
       };
     case LOGOUT:
       localStorage.removeItem("token");

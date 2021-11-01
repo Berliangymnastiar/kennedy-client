@@ -13,6 +13,7 @@ import axios from "axios";
 function Home() {
   const { userInfo } = useSelector((state) => state.authReducer);
   const [vehicle, setVehicle] = useState([]);
+  const URL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -106,7 +107,7 @@ function Home() {
                   <Card
                     key={vehicle.id}
                     id={vehicle.id}
-                    picture={vehicle.picture}
+                    picture={URL + vehicle.picture}
                     name={vehicle.name}
                     location={vehicle.location}
                   />

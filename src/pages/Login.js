@@ -8,10 +8,12 @@ import iconLoginWithGoogle from "../assets/images/icon-google.svg";
 
 import Footer from "../components/Footer";
 import { loginAction } from "../redux/action/authAction";
+import { connect } from "react-redux";
 
-function LoginPage() {
+function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -23,19 +25,26 @@ function LoginPage() {
     if (email === "") {
       // toast("Name must be field!");
       // return;
-      toast.error("email must be filled!", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.error("email are required!", {
+        position: toast.POSITION.TOP_RIGHT,
         theme: "colored",
       });
-    } else if (password === "") {
+    }
+    if (password === "") {
       // toast("Name must be field!");
       // return;
-      toast.error("password must be filled!", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.error("password are required!", {
+        position: toast.POSITION.TOP_RIGHT,
         theme: "colored",
       });
     }
     dispatch(loginAction(form, history));
+    if (props.authReducer.error) {
+      toast.error("Invalid email or password!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
   };
 
   return (
@@ -65,13 +74,12 @@ function LoginPage() {
                 }}
               ></div>
               <div className="flex-item-2">
-                {/* {error ? (
-                  <div class="alert alert-danger" role="alert">
-                    <p>{error}</p>
-                  </div>
-                ) : (
-                  ""
-                )} */}
+                {/* {showMessage
+                  ? toast.error("invalid email or password", {
+                      position: toast.POSITION.TOP_CENTER,
+                      theme: "colored",
+                    })
+                  : ""} */}
                 <form>
                   <div className="form-group">
                     <input
@@ -122,4 +130,10 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+const mapStateToProps = ({ authReducer }) => {
+  return {
+    authReducer,
+  };
+};
+
+export default connect(mapStateToProps)(LoginPage);

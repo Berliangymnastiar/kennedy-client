@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-// import { connect } from "react-redux";
-
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
-// import { getAllVehicles } from "../utils/Vehicles";
 
 class VehicleType extends Component {
   state = {
@@ -75,6 +72,7 @@ class VehicleType extends Component {
               cars: data.result,
             });
           }
+          console.log(data);
         });
     };
 
@@ -104,6 +102,7 @@ class VehicleType extends Component {
   }
 
   render() {
+    const URL = process.env.REACT_APP_BASE_URL;
     return (
       <>
         <Header />
@@ -154,7 +153,9 @@ class VehicleType extends Component {
                           className="mt-5"
                           key={vehicle.id}
                           id={vehicle.id}
-                          picture={vehicle.picture}
+                          picture={
+                            process.env.REACT_APP_BASE_URL + vehicle.picture
+                          }
                           name={vehicle.name}
                           location={vehicle.location}
                         />
@@ -181,7 +182,7 @@ class VehicleType extends Component {
                     <Card
                       key={vehicle.id}
                       id={vehicle.id}
-                      picture={vehicle.picture}
+                      picture={URL + vehicle.picture}
                       name={vehicle.name}
                       location={vehicle.location}
                     />
@@ -199,7 +200,7 @@ class VehicleType extends Component {
                     <Card
                       key={vehicle.id}
                       id={vehicle.id}
-                      picture={vehicle.picture}
+                      picture={URL + vehicle.picture}
                       name={vehicle.name}
                       location={vehicle.location}
                     />
@@ -217,7 +218,7 @@ class VehicleType extends Component {
                     <Card
                       key={vehicle.id}
                       id={vehicle.id}
-                      picture={vehicle.picture}
+                      picture={URL + vehicle.picture}
                       name={vehicle.name}
                       location={vehicle.location}
                     />
@@ -235,7 +236,7 @@ class VehicleType extends Component {
                     <Card
                       key={vehicle.id}
                       id={vehicle.id}
-                      picture={vehicle.picture}
+                      picture={URL + vehicle.picture}
                       name={vehicle.name}
                       location={vehicle.location}
                     />

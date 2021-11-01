@@ -1,10 +1,8 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-
 import iconPencil from "../assets/images/icon-pencil.png";
 
 import Header from "../components/Header";
@@ -12,16 +10,15 @@ import Footer from "../components/Footer";
 
 function ProfilePage() {
   const userId = useSelector((state) => state.authReducer);
-  const userGender = userId?.userInfo[0].gender;
+  const URL = process.env.REACT_APP_BASE_URL;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [imgPreview, setImagePreview] = useState(null);
   const [address, setAdress] = useState(null);
   const [phonenumber, setPhoneNumber] = useState(null);
-  const history = useHistory();
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -29,7 +26,7 @@ function ProfilePage() {
 
     if (id) {
       axios
-        .get(`http://localhost:8000/users/${id}`, {
+        .get(`${URL}/users/${id}`, {
           headers: {
             "x-access-token": `Bearer ${token}`,
           },
@@ -45,9 +42,40 @@ function ProfilePage() {
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [userId?.userInfo, URL]);
 
   const onSubmit = () => {
+    if (name === "") {
+      toast.error("Name are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (email === "") {
+      toast.error("Email are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (!email.includes("@")) {
+      toast.error("Please input a valid email!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (phonenumber === "") {
+      toast.error("Phonenumber are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+    if (address === "") {
+      toast.error("Address are required!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "colored",
+      });
+    }
+
     const data = new FormData();
     data.append("name", name);
     data.append("email", email);
@@ -61,23 +89,26 @@ function ProfilePage() {
     const token = localStorage.getItem("token");
     const id = userId?.userInfo[0].id;
     axios
-      .patch(`http://localhost:8000/users/${id}`, data, {
+      .patch(`${URL}/users/${id}`, data, {
         headers: {
           "x-access-token": `Bearer ${token}`,
         },
       })
       .then((res) => {
-        if (res) {
-          console.log("success update");
-        }
+        toast.success("Update profile success!", {
+          position: toast.POSITION.TOP_CENTER,
+          theme: "colored",
+        });
+        console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.message));
   };
 
   const onImageUpload = (e) => {
     const file = e.target.files[0];
     setImage(file);
     setImagePreview(URL.createObjectURL(file));
+    // setImagePreview(URL.revokeObjectURL(file));
   };
 
   return (
@@ -95,7 +126,7 @@ function ProfilePage() {
               <div className="col">
                 <label htmlFor="upload-image">
                   <img
-                    src={!imgPreview ? image : imgPreview}
+                    src={!imgPreview ? URL + image : imgPreview}
                     style={{
                       borderRadius: "100%",
                       width: "200px",
@@ -128,9 +159,10 @@ function ProfilePage() {
                         type="radio"
                         name="exampleRadios"
                         id="exampleRadios1"
-                        value={gender}
-                        // defaultValue={userGender === "male" ? "checked" : ""}
-                        onChange={(value) => setGender(value.target.value)}
+                        defaultChecked={
+                          userId.userInfo[0].gender === "male" ? "checked" : ""
+                        }
+                        onClick={() => setGender("male")}
                       />
                       <label
                         className="form-check-label"
@@ -148,9 +180,12 @@ function ProfilePage() {
                         type="radio"
                         name="exampleRadios"
                         id="exampleRadios1"
-                        onChange={(value) => setGender(value.target.value)}
-                        // defaultValue={userGender === "female" ? "checked" : ""}
-                        value={gender}
+                        defaultChecked={
+                          userId.userInfo[0].gender === "female"
+                            ? "checked"
+                            : ""
+                        }
+                        onClick={() => setGender("female")}
                       />
                       <label
                         className="form-check-label"
@@ -184,7 +219,7 @@ function ProfilePage() {
                     className="form-control"
                     id="email"
                     value={email}
-                    onChange={(value) => setEmail(value.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     style={{ marginLeft: "-10px" }}
                   />
                 </div>
@@ -196,7 +231,7 @@ function ProfilePage() {
                     id="address"
                     style={{ marginLeft: "-10px" }}
                     value={address}
-                    onChange={(value) => setAdress(value.target.value)}
+                    onChange={(e) => setAdress(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -206,7 +241,7 @@ function ProfilePage() {
                     className="form-control"
                     id="numberPhone"
                     value={phonenumber}
-                    onChange={(value) => setPhoneNumber(value.target.value)}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     style={{ marginLeft: "-10px" }}
                   />
                 </div>
@@ -233,21 +268,10 @@ function ProfilePage() {
                         id="display-name"
                         style={{ marginLeft: "-10px" }}
                         value={name}
-                        onChange={(value) => setName(value.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                   </div>
-                  {/* <div className="col-md-6 col-12">
-                      <div className="form-group">
-                        <label htmlFor="date">DD/MM/YY : </label>
-                        <input
-                          type="date"
-                          className="form-control"
-                          id="date"
-                          style={{ marginLeft: "-10px" }}
-                        />
-                      </div>
-                    </div> */}
                 </div>
                 <div className="row text-center">
                   <div className="col-md-4 col-6">
@@ -255,6 +279,7 @@ function ProfilePage() {
                       Save Change
                     </button>
                   </div>
+                  <ToastContainer style={{ fontSize: "16px" }} />
                   <div className="col-md-4 col-6">
                     <button className="btn btn-editpass">Edit Password</button>
                   </div>

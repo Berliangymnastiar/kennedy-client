@@ -38,6 +38,7 @@ function ReservationPage(props) {
   const history = useHistory();
 
   useEffect(() => {
+    const URL = process.env.REACT_APP_BASE_URL;
     const token = localStorage.getItem("token");
     const { id } = props.match.params;
     axios
@@ -50,7 +51,7 @@ function ReservationPage(props) {
         let vehicle = result.data.result[0];
         setName(vehicle.name);
         setPrice(vehicle.price);
-        setImage(vehicle.picture);
+        setImage(URL + vehicle.picture);
         setLocation(vehicle.location);
 
         // setAvailableItem(vehicle.available_item);

@@ -10,29 +10,21 @@ import { LOGIN, LOGOUT } from "./actionString";
 // };
 
 export const loginAction = (body, history) => (dispatch) => {
-  // const data = {
-  //   email: form.email,
-  //   password: form.password,
-  // };
-
-  // let data = []
-
   onLogin(body)
     .then((result) => {
-      // if (result) {
-      //   localStorage.setItem("token", result.data.result.token);
-      //   localStorage.setItem(
-      //     "userInfo",
-      //     JSON.stringify(result.data.result.userInfo)
-      //   );
-      // }
       dispatch({
         type: LOGIN,
         payload: result.data.result,
       });
       history.push("/");
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => {
+      console.log(err.message);
+      dispatch({
+        type: LOGIN,
+        payload: err.message,
+      });
+    });
 };
 
 export const logoutAction = (history) => (dispatch) => {
