@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 function ProfilePage() {
   const userId = useSelector((state) => state.authReducer);
-  const URL = process.env.REACT_APP_BASE_URL;
+  const url = process.env.REACT_APP_BASE_URL;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ function ProfilePage() {
 
     if (id) {
       axios
-        .get(`${URL}/users/${id}`, {
+        .get(`${url}/users/${id}`, {
           headers: {
             "x-access-token": `Bearer ${token}`,
           },
@@ -38,11 +38,11 @@ function ProfilePage() {
           setPhoneNumber(data.phonenumber);
           setGender(data.gender);
           setAdress(data.address);
-          setImage(data.picture);
+          setImage(url + data.picture);
         })
         .catch((err) => console.log(err));
     }
-  }, [userId?.userInfo, URL]);
+  }, [userId?.userInfo, url]);
 
   const onSubmit = () => {
     if (name === "") {
@@ -89,14 +89,14 @@ function ProfilePage() {
     const token = localStorage.getItem("token");
     const id = userId?.userInfo[0].id;
     axios
-      .patch(`${URL}/users/${id}`, data, {
+      .patch(`${url}/users/${id}`, data, {
         headers: {
           "x-access-token": `Bearer ${token}`,
         },
       })
       .then((res) => {
         toast.success("Update profile success!", {
-          position: toast.POSITION.TOP_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
           theme: "colored",
         });
         console.log(res);
@@ -108,7 +108,6 @@ function ProfilePage() {
     const file = e.target.files[0];
     setImage(file);
     setImagePreview(URL.createObjectURL(file));
-    // setImagePreview(URL.revokeObjectURL(file));
   };
 
   return (
@@ -126,7 +125,7 @@ function ProfilePage() {
               <div className="col">
                 <label htmlFor="upload-image">
                   <img
-                    src={!imgPreview ? URL + image : imgPreview}
+                    src={!imgPreview ? image : imgPreview}
                     style={{
                       borderRadius: "100%",
                       width: "200px",

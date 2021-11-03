@@ -12,7 +12,7 @@ import { getVehicleDetail } from "../utils/Vehicles";
 import iconBackBlack from "../assets/images/icon-back-black.svg";
 
 function EditVehicle(props) {
-  const URL = process.env.REACT_APP_BASE_URL;
+  const url = process.env.REACT_APP_BASE_URL;
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
@@ -33,7 +33,7 @@ function EditVehicle(props) {
           setLocation(data.location);
           setPrice(data.price);
           setStock(data.available_item);
-          setImagePreview(URL + data.picture);
+          setImagePreview(url + data.picture);
           switch (data.category_name) {
             case "Cars":
               setCategory("1");
@@ -50,7 +50,7 @@ function EditVehicle(props) {
         })
         .catch((err) => console.log(err.message));
     }
-  }, [props.match.params.id, URL]);
+  }, [props.match.params.id, url]);
 
   const onSubmit = () => {
     const data = new FormData();
@@ -66,7 +66,7 @@ function EditVehicle(props) {
     const token = localStorage.getItem("token");
     const id = props.match.params.id;
     axios
-      .patch(`http://localhost:8000/vehicles/${id}`, data, {
+      .patch(`${url}/vehicles/${id}`, data, {
         headers: {
           "x-access-token": `Bearer ${token}`,
           "content-type": "multipart/form-data",
@@ -74,15 +74,8 @@ function EditVehicle(props) {
       })
       .then((res) => {
         if (res) {
-          setName("");
-          setLocation("");
-          setPrice("");
-          setCategory("");
-          setStock("");
-          setImage("");
-          setImagePreview(null);
           toast.success("edit vehicle success!", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.TOP_RIGHT,
             theme: "colored",
           });
           history.push({ pathname: `/edit-vehicle/${id}` });
@@ -110,7 +103,7 @@ function EditVehicle(props) {
             const id = props.match.params.id;
             const token = localStorage.getItem("token");
             axios
-              .delete(`http://localhost:8000/vehicles/${id}`, {
+              .delete(`${url}/vehicles/${id}`, {
                 headers: {
                   "x-access-token": `Bearer ${token}`,
                 },

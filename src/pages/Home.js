@@ -116,8 +116,6 @@ function Home() {
             </div>
           </div>
         </section>
-        {/* userInfo[0]?.roles */}
-        {/* {userRole && userRole[0].roles} */}
         {userInfo[0]?.roles === "admin" ? (
           <section className="button add-vehicle">
             <div className="container container-fluid">
@@ -128,7 +126,7 @@ function Home() {
                     className="btn btn-chat"
                     style={{ width: "100%", height: "90px" }}
                   >
-                    Add new item
+                    <div className="text-center mt-3">Add new item</div>
                   </Link>
                 </div>
               </div>
